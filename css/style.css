@@ -1,0 +1,470 @@
+/* ===== Base =====
+   Identidade: Manual de Marca Íntegra v1, jul/2026.
+   Verde Íntegra #005735 é a única cor de marca; grafite #22262B para texto;
+   fundos em branco puro.
+   Gilroy: pacote gratuito (Radomir Tinkov, EULA item h autoriza @font-face
+   em site) só tem 2 pesos — ExtraBold e Light. Usada nos títulos e botões,
+   onde ExtraBold funciona bem; menu e texto miúdo continuam em Poppins,
+   que cobre os pesos intermediários que a Gilroy free não tem.
+   Sobre fundo escuro (header/hero), a marca vai em negativa branca, conforme
+   regra de aplicação do manual — não usamos o verde sobre o próprio verde. */
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../assets/fonts/Gilroy-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../assets/fonts/Gilroy-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #ffffff;
+  --bg-card: #ffffff;
+  --bg-soft: #f6f8f6;
+  --text: #22262B;
+  --text-muted: #5c6167;
+  --border: #dfe3e0;
+  --primary: #005735;
+  --primary-dark: #003d25;
+  --accent: #005735;
+  --accent-dark: #003d25;
+  --conferir-bg: #fff3cd;
+  --conferir-border: #c0501f;
+  --radius: 6px;
+  --font-display: "Poppins", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-impact: "Gilroy", "Poppins", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+}
+
+.container {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 { line-height: 1.25; margin-top: 0; font-family: var(--font-impact); font-weight: 800; }
+a { color: var(--primary); }
+
+/* ===== Eyebrow tag ===== */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 5px 12px;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+}
+
+.eyebrow-onDark { color: #fff; border-color: rgba(255,255,255,0.55); }
+.eyebrow-onLight { color: var(--primary); border-color: var(--primary); }
+
+/* ===== Header ===== */
+header.site-header {
+  background: var(--primary-dark);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1320px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  flex-wrap: nowrap;
+  gap: 16px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  /* área de respiro mínima ao redor da marca, por enquanto só no eixo vertical
+     já que o header tem altura fixa — reveja se o header crescer */
+  padding: 6px 0;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+nav.main-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 19px;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-display);
+}
+
+nav.main-nav li { position: relative; }
+
+nav.main-nav > ul > li > a {
+  text-decoration: none;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.84rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 0;
+  white-space: nowrap;
+}
+
+nav.main-nav > ul > li > a:hover,
+nav.main-nav > ul > li:hover > a { color: #fff; }
+
+nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
+
+nav.main-nav .dropdown {
+  position: absolute;
+  top: 100%;
+  left: -14px;
+  width: max-content;
+  max-width: 320px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  padding: 8px 0;
+  gap: 0;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity .15s ease, transform .15s ease, visibility .15s;
+  z-index: 30;
+}
+
+nav.main-nav li:hover > .dropdown,
+nav.main-nav li:focus-within > .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+nav.main-nav .dropdown a {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+  padding: 8px 18px;
+  display: block;
+  white-space: nowrap;
+}
+
+nav.main-nav .dropdown a:hover { background: var(--bg-soft); color: var(--primary); }
+
+nav.main-nav .dropdown .wip-link {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+  padding: 8px 18px;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.wip-suffix {
+  font-style: italic;
+  color: #9aa09b;
+}
+
+.btn-header {
+  background: #fff;
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  font-family: var(--font-impact);
+  font-weight: 800;
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  padding: 11px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-header:hover { background: var(--bg-soft); }
+
+/* ===== Hero =====
+   A faixa verde fica só no header — o hero é fundo claro, encostado
+   no menu, sem uma segunda faixa escura embaixo. */
+.hero {
+  background: var(--bg);
+  padding: 40px 0 12px;
+}
+
+.hero h1 {
+  color: var(--text);
+  font-size: 1.9rem;
+  max-width: 680px;
+  margin-bottom: 14px;
+}
+
+.hero p {
+  max-width: 640px;
+  font-size: 1.02rem;
+  color: var(--text-muted);
+}
+
+/* ===== Discipline blocks ===== */
+.disciplines {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  padding: 48px 0;
+}
+
+.discipline-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+}
+
+.discipline-card .eyebrow { margin-bottom: 14px; }
+
+.discipline-card h2 {
+  font-size: 1.2rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.discipline-card .discipline-desc {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  margin-bottom: 16px;
+}
+
+.service-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.service-list li {
+  border-top: 1px solid var(--border);
+}
+
+.service-list li:first-child { border-top: none; }
+
+.service-list a,
+.service-list .wip {
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.service-list a { color: var(--text); font-weight: 500; }
+.service-list a:hover { color: var(--accent); }
+
+.service-list .wip {
+  color: var(--text-muted);
+}
+
+.tag-wip {
+  font-size: 0.72rem;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--border);
+  color: #8a9089;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 8px;
+}
+
+/* ===== Future disciplines note ===== */
+.future-note {
+  padding: 0 0 56px;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  border-top: 1px dashed var(--border);
+  margin-top: -24px;
+  padding-top: 24px;
+}
+
+/* ===== Context block ===== */
+.context-block {
+  background: var(--bg-soft);
+  padding: 44px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.context-block .container { max-width: 720px; }
+.context-block h2 { color: var(--text); font-size: 1.1rem; }
+.context-block p { color: var(--text-muted); }
+
+/* ===== Footer / CTA ===== */
+footer.site-footer {
+  background: var(--primary-dark);
+  padding: 44px 0;
+  color: #fff;
+}
+
+.cta-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.cta-box h3 { margin-bottom: 4px; font-size: 1.1rem; color: #fff; }
+.cta-box p { margin: 0; color: rgba(255,255,255,0.78); font-size: 0.9rem; }
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 800;
+  font-family: var(--font-impact);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.btn-primary {
+  background: #fff;
+  color: var(--primary-dark);
+}
+
+.btn-primary:hover { background: var(--bg-soft); }
+
+.footer-meta {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.footer-meta .conferir { color: var(--text); }
+
+/* ===== Floating WhatsApp button =====
+   Verde padrão do próprio WhatsApp — ícone de terceiro, não é a marca
+   Íntegra, por isso fica fora da paleta oficial de propósito (precisa
+   ser reconhecível como WhatsApp). */
+.whatsapp-float {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+  z-index: 100;
+  text-decoration: none;
+}
+
+.whatsapp-float:hover { background: #1fb958; }
+
+.whatsapp-float svg { width: 28px; height: 28px; }
+
+/* ===== CONFERIR marker ===== */
+.conferir {
+  background: var(--conferir-bg);
+  border-left: 3px solid var(--conferir-border);
+  padding: 2px 8px;
+  font-size: 0.9em;
+  border-radius: 2px;
+}
+
+.conferir::before {
+  content: "CONFERIR: ";
+  font-weight: 700;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--conferir-border);
+}
+
+/* ===== Service page ===== */
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 20px 0 0;
+}
+
+.breadcrumb a { color: var(--text-muted); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+.service-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.service-header {
+  padding: 20px 0 8px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.service-header h1 { font-size: 1.7rem; margin-bottom: 4px; color: var(--text); }
+.service-header .apelido { color: var(--text-muted); font-size: 1rem; font-weight: 400; }
+.service-header .resumo { font-size: 1.05rem; margin-top: 14px; }
+
+.service-section {
+  margin-bottom: 32px;
+}
+
+.service-section h2 {
+  font-size: 1.05rem;
+  color: var(--primary-dark);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+
+.service-section ul, .service-section ol {
+  padding-left: 20px;
+}
+
+.service-section li { margin-bottom: 6px; }
+
+.faq-item { margin-bottom: 16px; }
+.faq-item .q { font-weight: 600; margin-bottom: 4px; }
+
+.included-note {
+  margin-top: 12px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
