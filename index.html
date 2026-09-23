@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Íntegra — Engenharia em várias frentes em BH</title>
+  <meta name="description" content="Segurança do trabalho, laudos técnicos e documentação para empresas em Belo Horizonte. Diagnóstico rápido pelo WhatsApp antes de qualquer proposta.">
+  <link rel="canonical" href="https://felipe-angelin.github.io/integra-site/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Íntegra">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Íntegra — Segurança do Trabalho em BH">
+  <meta property="og:description" content="Segurança do trabalho, laudos técnicos e documentação para empresas em Belo Horizonte. Diagnóstico rápido pelo WhatsApp antes de qualquer proposta.">
+  <meta property="og:url" content="https://felipe-angelin.github.io/integra-site/">
+  <meta property="og:image" content="https://felipe-angelin.github.io/integra-site/assets/favicon/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+  <title>Íntegra — Segurança do Trabalho em BH</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
@@ -18,112 +31,109 @@
       </a>
 
       <div class="header-right">
+        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+        </button>
+
         <nav class="main-nav">
           <ul>
             <li><a href="index.html">Início</a></li>
 
-            <li>
-              <a href="seguranca-do-trabalho/index.html">Segurança do Trabalho <span class="caret">▾</span></a>
-              <ul class="dropdown">
-                <li><span class="wip-link">Programas Legais — <span class="wip-suffix">em breve</span></span></li>
-                <li><span class="wip-link">Credenciamento e Mobilizações — <span class="wip-suffix">em breve</span></span></li>
-                <li><span class="wip-link">Gestão de Documentos — <span class="wip-suffix">em breve</span></span></li>
-                <li><a href="seguranca-do-trabalho/avcb.html">AVCB</a></li>
-                <li><span class="wip-link">CLCB — <span class="wip-suffix">em breve</span></span></li>
-                <li><a href="seguranca-do-trabalho/renovacao-avcb-clcb.html">Renovação de AVCB/CLCB</a></li>
-                <li><span class="wip-link">DDL — <span class="wip-suffix">em breve</span></span></li>
-              </ul>
+            <li class="nav-item-with-dropdown">
+              <a href="#disciplinas">Serviços <span class="caret">▾</span></a>
+              <div class="dropdown">
+                <div class="dropdown-column">
+                  <div class="dropdown-item"><a href="#pgr">PGR</a></div>
+                  <div class="dropdown-item"><a href="#pcmso-aso">PCMSO + ASO Digital</a></div>
+                  <div class="dropdown-item"><a href="#ltcat">LTCAT</a></div>
+                  <div class="dropdown-item"><a href="#laudo-nr16">Laudo NR-16</a></div>
+                  <div class="dropdown-item"><a href="#aep-aet">AEP / AET</a></div>
+                  <div class="dropdown-item"><a href="seguranca-do-trabalho/avcb.html">AVCB</a></div>
+                  <div class="dropdown-item"><a href="seguranca-do-trabalho/renovacao-avcb-clcb.html">Renovação de AVCB/CLCB</a></div>
+                </div>
+              </div>
             </li>
 
-            <li>
-              <a href="engenharia-ambiental/index.html">Engenharia Ambiental <span class="caret">▾</span></a>
-              <ul class="dropdown">
-                <li><span class="wip-link">Laudos Ambientais — <span class="wip-suffix">em breve</span></span></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="agrimensura/index.html">Agrimensura <span class="caret">▾</span></a>
-              <ul class="dropdown">
-                <li><span class="wip-link">Topografia — <span class="wip-suffix">em breve</span></span></li>
-                <li><span class="wip-link">Aerolevantamento — <span class="wip-suffix">em breve</span></span></li>
-                <li><span class="wip-link">Ortofoto — <span class="wip-suffix">em breve</span></span></li>
-                <li><span class="wip-link">Fotogrametria — <span class="wip-suffix">em breve</span></span></li>
-                <li><span class="wip-link">Escaneamento 3D — <span class="wip-suffix">em breve</span></span></li>
-              </ul>
-            </li>
-
+            <li><a href="#quando-procurar">Quando Procurar</a></li>
             <li><a href="#contato">Contato</a></li>
           </ul>
         </nav>
 
-        <a href="#" class="btn-header">Fale no WhatsApp</a>
+        <a href="https://wa.me/5531972710771?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20caso%20da%20%C3%8Dntegra." class="btn-header" target="_blank" rel="noopener">Fale no WhatsApp</a>
       </div>
     </div>
   </header>
 
   <section class="hero">
-    <div class="container">
-      <h1>Engenharia em várias frentes, sob o mesmo nome</h1>
-      <p>
-        A Íntegra reúne segurança do trabalho, engenharia civil, ambiental, agrimensura
-        e engenharia mecânica em um só lugar. Cada frente resolve um tipo de problema
-        diferente — de programa legal e AVCB vencido a laudo técnico e levantamento
-        topográfico — com a mesma forma de trabalhar: diagnóstico claro, documentação
-        organizada e acompanhamento até o fim do processo.
-      </p>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <p class="hero-vision">Solução e Gestão em SST</p>
+        <p>
+          A Íntegra ajuda empresas, condomínios e profissionais a resolver pendências
+          técnicas com clareza: segurança do trabalho, incêndio, laudos, licenciamento
+          e documentação que precisa estar certa antes de virar problema.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5531972710771?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20caso%20da%20%C3%8Dntegra." class="btn btn-primary" target="_blank" rel="noopener">Falar por WhatsApp</a>
+          <a href="#disciplinas" class="btn btn-secondary">Ver serviços</a>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <div class="panel-card">
+          <span class="panel-label">Atendimento</span>
+          <strong>Diagnóstico rápido</strong>
+          <p>Entendemos a pendência real e te orientamos sobre o que falta antes de qualquer proposta.</p>
+        </div>
+        <div class="panel-card subtle">
+          <span class="panel-label">Cobertura</span>
+          <strong>Segurança, incêndio e documentação técnica</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-bar">
+    <div class="container trust-items">
+      <div><strong>SST</strong><span>e incêndio</span></div>
+      <div><strong>Diagnóstico</strong><span>sem enrolação</span></div>
+      <div><strong>Documentação</strong><span>organizada</span></div>
+      <div><strong>Acompanhamento</strong><span>até o fim</span></div>
     </div>
   </section>
 
   <section id="disciplinas">
-    <div class="container disciplines">
+    <div class="container disciplines disciplines-grid">
 
-      <div class="discipline-card" id="trabalho">
-        <span class="eyebrow eyebrow-onLight">Programas legais e incêndio</span>
-        <h2><a href="seguranca-do-trabalho/index.html">Segurança do Trabalho</a></h2>
-        <p class="discipline-desc">Gestão documental, programas legais e segurança contra incêndio.</p>
-        <ul class="service-list">
-          <li><span class="wip">Programas Legais <span class="tag-wip">em breve</span></span></li>
-          <li><span class="wip">Credenciamento e Mobilizações <span class="tag-wip">em breve</span></span></li>
-          <li><span class="wip">Gestão de Documentos <span class="tag-wip">em breve</span></span></li>
-          <li><a href="seguranca-do-trabalho/avcb.html">AVCB</a></li>
-          <li><span class="wip">CLCB <span class="tag-wip">em breve</span></span></li>
-          <li><a href="seguranca-do-trabalho/renovacao-avcb-clcb.html">Renovação de AVCB/CLCB</a></li>
-          <li><span class="wip">DDL <span class="tag-wip">em breve</span></span></li>
-        </ul>
-      </div>
+      <article class="discipline-card feature-card" id="pgr">
+        <h2>PGR</h2>
+        <p>Identifica, avalia e controla riscos, criando <span class="accent-text">ações efetivas</span> que evitam acidentes.</p>
+      </article>
 
-      <div class="discipline-card" id="ambiental">
-        <span class="eyebrow eyebrow-onLight">Laudos ambientais</span>
-        <h2><a href="engenharia-ambiental/index.html">Engenharia Ambiental</a></h2>
-        <p class="discipline-desc">Laudos pertinentes à engenharia ambiental.</p>
-        <ul class="service-list">
-          <li><span class="wip">Laudos Ambientais <span class="tag-wip">em breve</span></span></li>
-        </ul>
-      </div>
+      <article class="discipline-card feature-card" id="pcmso-aso">
+        <h2>PCMSO <span class="plus-sign">+</span> ASO Digital</h2>
+        <p>Monitoramento médico completo com <span class="accent-text">ASOs 100% digitais</span> — admissional, periódico e demissional.</p>
+      </article>
 
-      <div class="discipline-card" id="agrimensura">
-        <span class="eyebrow eyebrow-onLight">Topografia e escaneamento</span>
-        <h2><a href="agrimensura/index.html">Engenharia de Agrimensura</a></h2>
-        <p class="discipline-desc">Levantamento topográfico e aéreo.</p>
-        <ul class="service-list">
-          <li><span class="wip">Topografia <span class="tag-wip">em breve</span></span></li>
-          <li><span class="wip">Aerolevantamento <span class="tag-wip">em breve</span></span></li>
-          <li><span class="wip">Ortofoto <span class="tag-wip">em breve</span></span></li>
-          <li><span class="wip">Fotogrametria <span class="tag-wip">em breve</span></span></li>
-          <li><span class="wip">Escaneamento 3D <span class="tag-wip">em breve</span></span></li>
-        </ul>
-      </div>
+      <article class="discipline-card feature-card" id="ltcat">
+        <h2>LTCAT</h2>
+        <p>Valida agentes nocivos e define direito à <span class="accent-text">aposentadoria especial</span>.</p>
+      </article>
+
+      <article class="discipline-card feature-card" id="laudo-nr16">
+        <h2>Laudo NR-16</h2>
+        <p>Caracteriza atividades perigosas <span class="accent-text">(inflamáveis, explosivos, eletricidade)</span>.</p>
+      </article>
+
+      <article class="discipline-card feature-card" id="aep-aet">
+        <h2>AEP / AET</h2>
+        <p>Análises preliminar e ergonômica para mitigar riscos conforme <span class="accent-text">NR-17</span>.</p>
+      </article>
 
     </div>
   </section>
 
-  <p class="container future-note">
-    Novas frentes entram como disciplinas adicionais mais adiante — a estrutura do
-    site já está pronta para isso, sem precisar refazer o que já existe.
-  </p>
-
-  <section class="context-block">
+  <section class="context-block" id="quando-procurar">
     <div class="container">
       <h2>Quando procurar</h2>
       <p>
@@ -142,20 +152,21 @@
           <h3>Fale sobre o seu caso</h3>
           <p>Conta o que você precisa — a gente responde com o que falta e os próximos passos.</p>
         </div>
-        <a href="#" class="btn btn-primary">Chamar no WhatsApp</a>
+        <a href="https://wa.me/5531972710771?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20caso%20da%20%C3%8Dntegra." class="btn btn-primary" target="_blank" rel="noopener">Chamar no WhatsApp</a>
       </div>
       <div class="footer-meta">
-        <span class="conferir">dados de contato — telefone, e-mail, endereço</span>
-        <p style="margin-top:10px;">Íntegra · Belo Horizonte, MG</p>
+        <p class="contact-line">Atendimento: (31) 97271-0771</p>
+        <p class="contact-line">Íntegra · Belo Horizonte, MG</p>
       </div>
     </div>
   </footer>
 
-  <a href="#" class="whatsapp-float" title="Chamar no WhatsApp (número pendente)" aria-label="WhatsApp">
+  <a href="https://wa.me/5531972710771?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20caso%20da%20%C3%8Dntegra." class="whatsapp-float" title="Abrir WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 3C7.03 3 3 6.58 3 11c0 2.08.9 3.97 2.38 5.4L4.5 20.5l4.3-1.62A9.96 9.96 0 0 0 12 19c4.97 0 9-3.58 9-8s-4.03-8-9-8z" fill="#fff"/>
     </svg>
   </a>
 
+  <script src="js/main.js"></script>
 </body>
 </html>

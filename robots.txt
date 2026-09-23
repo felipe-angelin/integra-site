@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://felipe-angelin.github.io/integra-site/sitemap.xml
