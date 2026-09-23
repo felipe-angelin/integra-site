@@ -116,7 +116,7 @@ header.site-header {
   display: flex;
   align-items: center;
   gap: 18px;
-  flex-shrink: 0;
+  flex: 1 1 auto;
   min-width: 0;
 }
 
@@ -145,6 +145,7 @@ nav.main-nav ul {
   list-style: none;
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
   flex-wrap: nowrap;
   gap: 16px;
   margin: 0;
@@ -177,7 +178,8 @@ nav.main-nav ul {
 }
 
 .nav-item-with-dropdown:hover > .dropdown,
-.nav-item-with-dropdown:focus-within > .dropdown {
+.nav-item-with-dropdown:focus-within > .dropdown,
+.nav-item-with-dropdown.is-open > .dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -213,37 +215,6 @@ nav.main-nav ul {
 .dropdown-item.muted span {
   font-style: italic;
   color: rgba(34,38,43,0.52);
-}
-
-.dropdown-spotlight {
-  background: rgba(0,87,53,0.03);
-  border-left: 1px solid rgba(0,87,53,0.08);
-  padding: 22px 20px;
-}
-
-.spotlight-label {
-  display: block;
-  color: var(--primary);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.spotlight-title {
-  font-size: 1.1rem;
-  line-height: 1.25;
-  color: var(--text);
-  margin: 0 0 10px;
-  font-weight: 700;
-}
-
-.dropdown-spotlight p {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  line-height: 1.5;
 }
 
 .nav-toggle {
@@ -566,18 +537,21 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 
 .service-list li:first-child { border-top: none; }
 
-.service-list a,
-.service-list .wip {
+.service-list a {
   display: block;
   padding: 10px 0;
   text-decoration: none;
   font-size: 0.95rem;
+  color: var(--text);
+  font-weight: 500;
 }
 
-.service-list a { color: var(--text); font-weight: 500; }
 .service-list a:hover { color: var(--accent); }
 
 .service-list .wip {
+  display: block;
+  padding: 10px 0;
+  font-size: 0.95rem;
   color: var(--text-muted);
 }
 
@@ -591,16 +565,6 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   padding: 2px 6px;
   border-radius: 3px;
   margin-left: 8px;
-}
-
-/* ===== Future disciplines note ===== */
-.future-note {
-  padding: 0 0 56px;
-  color: var(--text-muted);
-  font-size: 0.92rem;
-  border-top: 1px dashed var(--border);
-  margin-top: -24px;
-  padding-top: 24px;
 }
 
 /* ===== Context block ===== */
@@ -844,7 +808,8 @@ footer.site-footer {
   }
 
   nav.main-nav li:hover > .dropdown,
-  nav.main-nav li:focus-within > .dropdown {
+  nav.main-nav li:focus-within > .dropdown,
+  nav.main-nav li.is-open > .dropdown {
     display: flex;
   }
 
@@ -927,4 +892,122 @@ footer.site-footer {
   font-size: 0.92rem;
   color: var(--text-muted);
   font-style: italic;
+}
+
+/* ===== Diagnóstico ===== */
+.diagnostico-form {
+  margin-top: 8px;
+  margin-bottom: 40px;
+}
+
+.diag-contato {
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+}
+
+.diag-contato-title {
+  font-size: 1.05rem;
+  margin: 0 0 14px;
+}
+
+.diag-contato-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.diag-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.diag-field input {
+  font: inherit;
+  font-weight: 400;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: #fff;
+}
+
+.diag-field input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+@media (max-width: 560px) {
+  .diag-contato-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.diag-question {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.diag-question:first-child {
+  padding-top: 0;
+}
+
+.diag-question-text {
+  font-weight: 600;
+  margin: 0 0 10px;
+}
+
+.diag-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+
+.diag-options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.diagnostico-form .btn {
+  margin-top: 48px;
+}
+
+.diagnostico-resultado {
+  margin-top: 32px;
+  margin-bottom: 40px;
+  padding: 24px;
+  background: var(--bg-soft);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--primary);
+}
+
+.diagnostico-resultado h2 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+.diagnostico-resultado ul {
+  padding-left: 20px;
+  margin: 12px 0 20px;
+}
+
+.diagnostico-resultado li {
+  margin-bottom: 4px;
+}
+
+.diagnostico-atencao {
+  margin: 4px 0 20px;
+  padding: 12px 14px;
+  background: #fff4e5;
+  border-left: 3px solid #d97706;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  color: #7a4a00;
 }

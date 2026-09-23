@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Responda um diagnóstico rápido baseado na NR01 e veja na hora onde sua empresa tem pendências de segurança do trabalho.">
+  <link rel="canonical" href="https://felipe-angelin.github.io/integra-site/diagnostico.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Íntegra">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Diagnóstico de SST — Íntegra">
+  <meta property="og:description" content="Responda um diagnóstico rápido baseado na NR01 e veja na hora onde sua empresa tem pendências de segurança do trabalho.">
+  <meta property="og:url" content="https://felipe-angelin.github.io/integra-site/diagnostico.html">
+  <meta property="og:image" content="https://felipe-angelin.github.io/integra-site/assets/favicon/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+  <title>Diagnóstico de SST — Íntegra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo-integra-branca-crop.png" alt="Íntegra">
+      </a>
+
+      <div class="header-right">
+        <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+        </button>
+
+        <nav class="main-nav">
+          <ul>
+            <li><a href="index.html">Início</a></li>
+
+            <li class="nav-item-with-dropdown">
+              <a href="index.html#disciplinas">Serviços <span class="caret">▾</span></a>
+              <div class="dropdown">
+                <div class="dropdown-column">
+                  <div class="dropdown-item"><a href="index.html#pgr">PGR</a></div>
+                  <div class="dropdown-item"><a href="index.html#pcmso">PCMSO</a></div>
+                  <div class="dropdown-item"><a href="index.html#ltcat">LTCAT</a></div>
+                  <div class="dropdown-item"><a href="index.html#laudo-nr16">Laudo NR-16</a></div>
+                  <div class="dropdown-item"><a href="index.html#aep-aet">AEP / AET</a></div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="diagnostico.html">Diagnóstico</a></li>
+            <li><a href="index.html#como-funciona">Como Funciona</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+          </ul>
+        </nav>
+
+        <a href="https://wa.me/5531972710771?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20caso%20da%20%C3%8Dntegra." class="btn-header" target="_blank" rel="noopener">Fale no WhatsApp</a>
+      </div>
+    </div>
+  </header>
+
+  <p class="container breadcrumb">
+    <a href="index.html">Início</a> &gt;
+    Diagnóstico
+  </p>
+
+  <section class="service-content">
+    <div class="service-header">
+      <h1>Diagnóstico rápido de SST</h1>
+      <p class="resumo">
+        Responda sobre a sua empresa e veja na hora onde estão as pendências,
+        com base no que a NR01 pede em gestão de riscos ocupacionais.
+      </p>
+    </div>
+
+    <form id="diagnostico-form" class="diagnostico-form">
+
+      <div class="diag-contato">
+        <h2 class="diag-contato-title">Seus dados</h2>
+        <div class="diag-contato-grid">
+          <label class="diag-field">
+            CNPJ
+            <input type="text" name="cnpj" placeholder="00.000.000/0000-00" required>
+          </label>
+          <label class="diag-field">
+            Nome do contato
+            <input type="text" name="nome" required>
+          </label>
+          <label class="diag-field">
+            E-mail
+            <input type="email" name="email" required>
+          </label>
+          <label class="diag-field">
+            Telefone
+            <input type="tel" name="telefone" placeholder="(31) 90000-0000" required>
+          </label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">1. Qual desses setores descreve melhor a atividade principal da sua empresa?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="setor" value="administrativo"> Escritório, comércio ou serviços administrativos</label>
+          <label><input type="radio" name="setor" value="tecnico"> Oficina, indústria leve, manutenção ou serviços técnicos</label>
+          <label><input type="radio" name="setor" value="pesado"> Indústria pesada, construção civil, mineração ou frigorífico</label>
+          <label><input type="radio" name="setor" value="naosei"> Não sei classificar</label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">2. Sua empresa tem PGR (Programa de Gerenciamento de Riscos) atualizado?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="pgr" value="sim"> Sim, está atualizado</label>
+          <label><input type="radio" name="pgr" value="nao"> Não</label>
+          <label><input type="radio" name="pgr" value="naosei"> Não sei</label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">3. Sua empresa tem PCMSO ativo, com os exames periódicos dos funcionários em dia?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="pcmso" value="sim"> Sim</label>
+          <label><input type="radio" name="pcmso" value="nao"> Não</label>
+          <label><input type="radio" name="pcmso" value="naosei"> Não sei</label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">4. Se algum funcionário é exposto a agentes nocivos (ruído, calor, produtos químicos etc.), o LTCAT dele está pronto?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="ltcat" value="sim"> Sim, está pronto</label>
+          <label><input type="radio" name="ltcat" value="nao"> Não</label>
+          <label><input type="radio" name="ltcat" value="naosei"> Não sei</label>
+          <label><input type="radio" name="ltcat" value="napplica"> Não se aplica, ninguém exposto</label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">5. Sua empresa trabalha com atividades de risco acentuado (inflamáveis, explosivos, eletricidade) e já tem o laudo de periculosidade (NR-16)?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="nr16" value="sim"> Sim, tem o laudo</label>
+          <label><input type="radio" name="nr16" value="nao"> Não</label>
+          <label><input type="radio" name="nr16" value="naosei"> Não sei</label>
+          <label><input type="radio" name="nr16" value="napplica"> Não se aplica, não temos essas atividades</label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">6. Sua empresa já fez a análise ergonômica dos postos de trabalho (AEP/AET)?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="aep_aet" value="sim"> Sim</label>
+          <label><input type="radio" name="aep_aet" value="nao"> Não</label>
+          <label><input type="radio" name="aep_aet" value="naosei"> Não sei</label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">7. Sua empresa teve algum acidente de trabalho registrado (CAT) nos últimos 12 meses?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="acidente" value="sim"> Sim</label>
+          <label><input type="radio" name="acidente" value="nao"> Não</label>
+          <label><input type="radio" name="acidente" value="naosei"> Não sei</label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">8. Quantos funcionários a empresa tem, aproximadamente?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="porte" value="ate19"> Até 19</label>
+          <label><input type="radio" name="porte" value="20a100"> De 20 a 100</label>
+          <label><input type="radio" name="porte" value="mais100"> Mais de 100</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Ver resultado</button>
+    </form>
+
+    <div id="diagnostico-resultado" class="diagnostico-resultado" hidden>
+      <h2>Resultado</h2>
+      <p id="diagnostico-resumo"></p>
+      <ul id="diagnostico-pendencias"></ul>
+      <p id="diagnostico-atencao" class="diagnostico-atencao" hidden>Como já houve acidente de trabalho registrado nos últimos 12 meses, esse ponto pede atenção prioritária na gestão de SST.</p>
+      <a id="diagnostico-whatsapp" class="btn btn-primary" href="#" target="_blank" rel="noopener">Falar no WhatsApp sobre isso</a>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="contato">
+    <div class="container">
+      <div class="cta-box">
+        <div>
+          <h3>Fale sobre a gestão de SST da sua empresa</h3>
+          <p>Conta como funciona hoje e a gente monta a proposta de contrato fixo.</p>
+        </div>
+        <a href="https://wa.me/5531972710771?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20caso%20da%20%C3%8Dntegra." class="btn btn-primary" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div>
+      <div class="footer-meta">
+        <p class="contact-line">Atendimento: (31) 97271-0771</p>
+        <p class="contact-line">Íntegra · Belo Horizonte, MG</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5531972710771?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20caso%20da%20%C3%8Dntegra." class="whatsapp-float" title="Abrir WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 3C7.03 3 3 6.58 3 11c0 2.08.9 3.97 2.38 5.4L4.5 20.5l4.3-1.62A9.96 9.96 0 0 0 12 19c4.97 0 9-3.58 9-8s-4.03-8-9-8z" fill="#fff"/>
+    </svg>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script src="js/diagnostico.js"></script>
+</body>
+</html>
