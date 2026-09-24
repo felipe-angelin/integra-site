@@ -427,6 +427,56 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   font-size: 0.92rem;
 }
 
+.diag-highlight {
+  background: var(--primary);
+  padding: 32px 0;
+}
+
+.diag-highlight-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 28px;
+}
+
+.diag-highlight-copy {
+  max-width: 620px;
+}
+
+.diag-highlight-copy .eyebrow {
+  margin-bottom: 12px;
+}
+
+.diag-highlight-copy h2 {
+  color: #fff;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  margin-bottom: 8px;
+}
+
+.diag-highlight-copy p {
+  margin: 0;
+  color: rgba(255,255,255,0.85);
+  font-size: 0.96rem;
+}
+
+.diag-highlight .btn-primary {
+  background: #fff;
+  color: var(--primary-dark);
+  flex-shrink: 0;
+}
+
+.diag-highlight .btn-primary:hover {
+  background: var(--bg-soft);
+}
+
+@media (max-width: 700px) {
+  .diag-highlight-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 .trust-bar {
   background: var(--primary-dark);
   color: #fff;
