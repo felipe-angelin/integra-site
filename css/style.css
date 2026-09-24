@@ -86,13 +86,17 @@ a {
 .eyebrow-onLight { color: var(--primary); border-color: var(--primary); }
 
 .hero-vision {
-  margin: 0 0 12px;
-  font-family: var(--font-display);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  display: inline-block;
+  margin: 0 0 16px;
+  font-family: var(--font-impact);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--primary-dark);
+  background: rgba(0,87,53,0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
 }
 
 /* ===== Header ===== */
@@ -343,10 +347,6 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 
 .hero-copy .hero-vision {
   max-width: none;
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  color: var(--primary);
-  margin-bottom: 14px;
 }
 
 .hero-actions {
