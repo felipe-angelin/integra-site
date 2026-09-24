@@ -6,9 +6,9 @@
    no hero, na faixa do diagnóstico e no rodapé; hero-panel funciona como um
    quadro de legenda de desenho técnico; a lista de disciplinas usa números
    grandes e inverte pra verde no hover, como um índice de norma.
-   Tipografia: IBM Plex Mono nos títulos, botões e menu (a família só tem
-   peso até 700 — por isso os títulos usam font-weight 700, não 800); IBM
-   Plex Sans no corpo de texto.
+   Tipografia: Space Grotesk nos títulos, botões e menu (a família só tem
+   peso até 700 — por isso os títulos usam font-weight 700, não 800); Work
+   Sans no corpo de texto.
    Sem cantos arredondados nem sombras decorativas — bordas retas fazem a
    separação visual, como num documento técnico.
    Sobre fundo escuro (header/hero), a marca vai em negativa branca, conforme
@@ -28,9 +28,9 @@
   --conferir-bg: #fff3cd;
   --conferir-border: #c0501f;
   --radius: 0;
-  --font-display: "IBM Plex Mono", "Courier New", monospace;
-  --font-impact: "IBM Plex Mono", "Courier New", monospace;
-  --font-body: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: "Space Grotesk", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-impact: "Space Grotesk", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-body: "Work Sans", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
