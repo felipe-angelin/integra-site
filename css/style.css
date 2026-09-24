@@ -39,6 +39,10 @@ html, body {
   overflow-x: hidden;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -76,6 +80,7 @@ a {
 .eyebrow-onLight { color: var(--primary); border-color: var(--primary); }
 
 .hero-vision {
+  position: relative;
   display: block;
   margin: 0 0 20px;
   font-family: var(--font-impact);
@@ -85,8 +90,31 @@ a {
   letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--primary-dark);
-  border-left: 6px solid var(--primary);
   padding-left: 18px;
+}
+
+.hero-vision::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 6px;
+  background: var(--primary);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: hero-bar-draw .4s ease-out forwards;
+}
+
+@keyframes hero-bar-draw {
+  to { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-vision::before {
+    animation: none;
+    transform: scaleY(1);
+  }
 }
 
 /* ===== Header ===== */
@@ -528,7 +556,7 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   padding: 28px 20px;
   margin: 0 -20px;
   border-top: 2px solid var(--text);
-  transition: background-color .15s ease;
+  transition: background-color .15s ease, transform .15s ease;
 }
 
 .discipline-row:last-child {
@@ -537,6 +565,13 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 
 .discipline-row:hover {
   background: var(--primary);
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discipline-row:hover {
+    transform: none;
+  }
 }
 
 .discipline-row:hover .discipline-index,
