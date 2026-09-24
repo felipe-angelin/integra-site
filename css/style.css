@@ -2,11 +2,15 @@
    Identidade: Manual de Marca Íntegra v1, jul/2026.
    Verde Íntegra #005735 é a única cor de marca; grafite #22262B para texto;
    fundos em branco puro.
-   Tipografia: IBM Plex Mono nos títulos, botões e menu — reforça o caráter
-   técnico/documental do trabalho (laudos, programas, prazos); IBM Plex Sans
-   no corpo de texto, pra não cansar em blocos longos.
-   Sem cantos arredondados nem sombras decorativas — bordas retas de 1px
-   fazem a separação visual, como num documento técnico.
+   Linha "prancheta técnica": grid de fundo discreto (tipo papel milimetrado)
+   no hero, na faixa do diagnóstico e no rodapé; hero-panel funciona como um
+   quadro de legenda de desenho técnico; a lista de disciplinas usa números
+   grandes e inverte pra verde no hover, como um índice de norma.
+   Tipografia: IBM Plex Mono nos títulos, botões e menu (a família só tem
+   peso até 700 — por isso os títulos usam font-weight 700, não 800); IBM
+   Plex Sans no corpo de texto.
+   Sem cantos arredondados nem sombras decorativas — bordas retas fazem a
+   separação visual, como num documento técnico.
    Sobre fundo escuro (header/hero), a marca vai em negativa branca, conforme
    regra de aplicação do manual — não usamos o verde sobre o próprio verde. */
 
@@ -49,7 +53,7 @@ body {
   padding: 0 20px;
 }
 
-h1, h2, h3 { line-height: 1.25; margin-top: 0; font-family: var(--font-impact); font-weight: 800; }
+h1, h2, h3 { line-height: 1.15; margin-top: 0; font-family: var(--font-impact); font-weight: 700; letter-spacing: -0.01em; }
 a {
   color: var(--primary);
   transition: color .2s ease, opacity .2s ease, transform .2s ease, background-color .2s ease;
@@ -72,17 +76,17 @@ a {
 .eyebrow-onLight { color: var(--primary); border-color: var(--primary); }
 
 .hero-vision {
-  display: inline-block;
-  margin: 0 0 16px;
+  display: block;
+  margin: 0 0 20px;
   font-family: var(--font-impact);
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  font-size: clamp(1.9rem, 3.8vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--primary-dark);
-  background: rgba(0,87,53,0.1);
-  padding: 8px 16px;
-  border-radius: 0;
+  border-left: 6px solid var(--primary);
+  padding-left: 18px;
 }
 
 /* ===== Header ===== */
@@ -239,8 +243,10 @@ nav.main-nav li { position: relative; }
 nav.main-nav > ul > li > a {
   text-decoration: none;
   color: rgba(255,255,255,0.85);
-  font-size: 0.84rem;
-  font-weight: 500;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -256,7 +262,7 @@ nav.main-nav > ul > li > a::after {
   left: 0;
   bottom: -2px;
   width: 100%;
-  height: 1px;
+  height: 2px;
   background: rgba(255,255,255,0.8);
   transform: scaleX(0);
   transform-origin: left;
@@ -286,7 +292,7 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   color: var(--primary-dark);
   text-transform: uppercase;
   font-family: var(--font-impact);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 0.76rem;
   letter-spacing: 0.05em;
   padding: 11px 20px;
@@ -303,11 +309,16 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 
 /* ===== Hero =====
    A faixa verde fica só no header — o hero é fundo claro, encostado
-   no menu, sem uma segunda faixa escura embaixo. */
+   no menu, sem uma segunda faixa escura embaixo. Grid de fundo discreto
+   remete a papel milimetrado / planta técnica. */
 .hero {
-  background: var(--bg-soft);
-  padding: 56px 0 30px;
-  border-bottom: 1px solid rgba(0,87,53,0.08);
+  background-color: var(--bg-soft);
+  background-image:
+    linear-gradient(rgba(0,87,53,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,87,53,0.07) 1px, transparent 1px);
+  background-size: 34px 34px;
+  padding: 64px 0 40px;
+  border-bottom: 2px solid var(--primary);
 }
 
 .hero-grid {
@@ -317,21 +328,18 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   gap: 28px;
 }
 
-.hero-copy h1 {
-  color: var(--text);
-  font-size: clamp(2.2rem, 3vw, 3.2rem);
-  max-width: 700px;
-  margin-bottom: 16px;
-}
-
 .hero-copy p {
   max-width: 640px;
   font-size: 1.04rem;
   color: var(--text-muted);
 }
 
+.hero-copy .eyebrow {
+  margin-bottom: 14px;
+}
+
 .hero-copy .hero-vision {
-  max-width: none;
+  max-width: 620px;
 }
 
 .hero-actions {
@@ -347,7 +355,7 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   border-radius: var(--radius);
   text-decoration: none;
   font-size: 0.88rem;
-  font-weight: 800;
+  font-weight: 700;
   font-family: var(--font-impact);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -373,23 +381,22 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 .btn-secondary:hover { background: var(--bg-soft); }
 
 .hero-panel {
-  display: grid;
-  gap: 18px;
+  border: 2px solid var(--primary);
+  background: #fff;
 }
 
 .panel-card {
-  background: #fff;
-  border: 1px solid rgba(0,87,53,0.12);
-  border-radius: 0;
   padding: 22px 20px;
 }
 
-.panel-card.subtle {
-  background: rgba(0,87,53,0.05);
+.panel-card + .panel-card {
+  border-top: 2px solid var(--primary);
+  background: var(--bg-soft);
 }
 
 .panel-label {
   display: block;
+  font-family: var(--font-display);
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -412,8 +419,14 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 }
 
 .diag-highlight {
-  background: var(--primary);
-  padding: 32px 0;
+  background-color: var(--primary);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+  padding: 40px 0;
+  border-top: 2px solid var(--primary-dark);
+  border-bottom: 2px solid var(--primary-dark);
 }
 
 .diag-highlight-inner {
@@ -434,7 +447,8 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 
 .diag-highlight-copy h2 {
   color: #fff;
-  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  text-transform: uppercase;
   margin-bottom: 8px;
 }
 
@@ -477,8 +491,15 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   display: flex;
   flex-direction: column;
   gap: 4px;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
+  padding-left: 18px;
+  border-left: 1px solid rgba(255,255,255,0.25);
+}
+
+.trust-items div:first-child {
+  padding-left: 0;
+  border-left: none;
 }
 
 .trust-items strong {
@@ -492,8 +513,9 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 }
 
 /* ===== Discipline list =====
-   Lista numerada tipo "sumário técnico", em vez de grade de cards —
-   cada disciplina é uma linha com número, título e descrição. */
+   Lista numerada tipo índice de norma técnica — cada disciplina é uma
+   linha com número grande, título e descrição, que inverte pra verde
+   no hover. */
 .discipline-list {
   list-style: none;
   margin: 0;
@@ -502,22 +524,40 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 
 .discipline-row {
   display: flex;
-  gap: 24px;
-  padding: 24px 0;
-  border-top: 1px solid var(--border);
+  gap: 28px;
+  padding: 28px 20px;
+  margin: 0 -20px;
+  border-top: 2px solid var(--text);
+  transition: background-color .15s ease;
 }
 
 .discipline-row:last-child {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--text);
+}
+
+.discipline-row:hover {
+  background: var(--primary);
+}
+
+.discipline-row:hover .discipline-index,
+.discipline-row:hover h2,
+.discipline-row:hover p {
+  color: #fff;
+}
+
+.discipline-row:hover .accent-text {
+  color: #fff;
+  text-decoration: underline;
 }
 
 .discipline-index {
-  flex: 0 0 44px;
+  flex: 0 0 64px;
   font-family: var(--font-impact);
-  font-size: 0.85rem;
+  font-size: 2rem;
   font-weight: 700;
+  line-height: 1;
   color: var(--primary);
-  padding-top: 3px;
+  transition: color .15s ease;
 }
 
 .discipline-body {
@@ -526,9 +566,12 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 }
 
 .discipline-row h2 {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
   margin: 0 0 6px;
   color: var(--text);
+  transition: color .15s ease;
 }
 
 .discipline-row p {
@@ -536,11 +579,13 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   color: var(--text-muted);
   font-size: 0.96rem;
   max-width: 56ch;
+  transition: color .15s ease;
 }
 
 .accent-text {
   color: var(--primary);
   font-weight: 600;
+  transition: color .15s ease;
 }
 
 .service-list {
@@ -568,20 +613,29 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 
 /* ===== Context block ===== */
 .context-block {
-  background: var(--bg-soft);
-  padding: 44px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  background: #fff;
+  padding: 56px 0;
+  border-top: 2px solid var(--text);
+  border-bottom: 2px solid var(--text);
 }
 
 .context-block .container { max-width: 720px; }
-.context-block h2 { color: var(--text); font-size: 1.1rem; }
+.context-block h2 {
+  color: var(--primary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
 .context-block p { color: var(--text-muted); }
 
 /* ===== Footer / CTA ===== */
 footer.site-footer {
-  background: var(--primary-dark);
-  padding: 44px 0;
+  background-color: var(--primary-dark);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  padding: 52px 0;
   color: #fff;
 }
 
@@ -593,7 +647,12 @@ footer.site-footer {
   gap: 20px;
 }
 
-.cta-box h3 { margin-bottom: 4px; font-size: 1.1rem; color: #fff; }
+.cta-box h3 {
+  margin-bottom: 4px;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: #fff;
+}
 .cta-box p { margin: 0; color: rgba(255,255,255,0.78); font-size: 0.9rem; }
 
 .site-footer .btn-primary {
@@ -829,6 +888,19 @@ footer.site-footer {
   }
 
   .discipline-hero-text { max-width: none; padding: 32px 20px 0; }
+}
+
+@media (max-width: 560px) {
+  .discipline-row {
+    gap: 16px;
+    padding: 22px 16px;
+    margin: 0 -16px;
+  }
+
+  .discipline-index {
+    flex: 0 0 40px;
+    font-size: 1.5rem;
+  }
 }
 
 /* ===== Service page ===== */
