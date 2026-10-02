@@ -33,7 +33,12 @@ document.addEventListener('DOMContentLoaded', () => {
     altura: 'NR-35 (Trabalho em Altura)',
     espaco_confinado: 'NR-33 (Espaços Confinados)',
     eletricidade: 'NR-10 (Segurança em Eletricidade)',
-    maquinas: 'NR-12 (Máquinas e Equipamentos)'
+    maquinas: 'NR-12 (Máquinas e Equipamentos)',
+    epi: 'NR-06 (Equipamentos de Proteção Individual)',
+    brigada: 'NR-23 (Prevenção e Combate a Incêndio)',
+    construcao: 'NR-18 (Construção Civil)',
+    inflamaveis: 'NR-20 (Inflamáveis e Combustíveis)',
+    movimentacao: 'NR-11 (Transporte e Movimentação de Materiais)'
   };
 
   const PORTE = {
