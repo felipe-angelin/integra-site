@@ -6,39 +6,47 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  const serviceDropdown = mainNav.querySelector('.nav-item-with-dropdown');
+  // Trata todos os menus com submenu (Servicos, Treinamentos, e qualquer um
+  // que vier depois), nao só o primeiro - cada um abre/fecha sua própria
+  // dropdown no mobile sem navegar direto pela ancora.
+  const dropdowns = Array.from(mainNav.querySelectorAll('.nav-item-with-dropdown'));
+  const dropdownLinks = [];
+
   const closeMobileMenu = () => {
     mainNav.classList.remove('is-open');
     navToggle.setAttribute('aria-expanded', 'false');
-
-    if (serviceDropdown) {
-      serviceDropdown.classList.remove('is-open');
-    }
+    dropdowns.forEach((dropdown) => dropdown.classList.remove('is-open'));
   };
 
   navToggle.addEventListener('click', () => {
     const isOpen = mainNav.classList.toggle('is-open');
     navToggle.setAttribute('aria-expanded', String(isOpen));
 
-    if (!isOpen && serviceDropdown) {
-      serviceDropdown.classList.remove('is-open');
+    if (!isOpen) {
+      dropdowns.forEach((dropdown) => dropdown.classList.remove('is-open'));
     }
   });
 
-  const serviceLink = serviceDropdown ? serviceDropdown.querySelector(':scope > a') : null;
+  dropdowns.forEach((dropdown) => {
+    const triggerLink = dropdown.querySelector(':scope > a');
 
-  if (serviceLink) {
-    serviceLink.addEventListener('click', (event) => {
+    if (!triggerLink) {
+      return;
+    }
+
+    dropdownLinks.push(triggerLink);
+
+    triggerLink.addEventListener('click', (event) => {
       if (window.innerWidth <= 840) {
         event.preventDefault();
-        serviceDropdown.classList.toggle('is-open');
+        dropdown.classList.toggle('is-open');
       }
     });
-  }
+  });
 
   mainNav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      if (window.innerWidth <= 840 && link !== serviceLink) {
+      if (window.innerWidth <= 840 && !dropdownLinks.includes(link)) {
         closeMobileMenu();
       }
     });
