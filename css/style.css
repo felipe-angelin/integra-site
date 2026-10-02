@@ -543,11 +543,18 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 /* ===== Discipline list =====
    Lista numerada tipo índice de norma técnica — cada disciplina é uma
    linha com número grande, título e descrição, que inverte pra verde
-   no hover. */
+   no hover. Reaproveitada tanto pra #disciplinas quanto pra
+   #treinamentos, cada uma com sua própria numeração 01..N. */
+#disciplinas .eyebrow,
+#treinamentos .eyebrow {
+  margin-top: 48px;
+  margin-bottom: 4px;
+}
+
 .discipline-list {
   list-style: none;
   margin: 0;
-  padding: 48px 0;
+  padding: 0 0 48px;
 }
 
 .discipline-row {
@@ -1078,6 +1085,17 @@ footer.site-footer {
 
 .diagnostico-resultado li {
   margin-bottom: 4px;
+}
+
+.diagnostico-resultado-trainings {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.diagnostico-resultado-trainings h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
 }
 
 .diagnostico-atencao {

@@ -52,6 +52,18 @@
               </div>
             </li>
 
+            <li class="nav-item-with-dropdown">
+              <a href="index.html#treinamentos">Treinamentos <span class="caret">▾</span></a>
+              <div class="dropdown">
+                <div class="dropdown-column">
+                  <div class="dropdown-item"><a href="index.html#nr35">NR-35 · Altura</a></div>
+                  <div class="dropdown-item"><a href="index.html#nr33">NR-33 · Espaços Confinados</a></div>
+                  <div class="dropdown-item"><a href="index.html#nr10">NR-10 · Eletricidade</a></div>
+                  <div class="dropdown-item"><a href="index.html#nr12">NR-12 · Máquinas</a></div>
+                </div>
+              </div>
+            </li>
+
             <li><a href="diagnostico.html">Diagnóstico</a></li>
             <li><a href="index.html#como-funciona">Como Funciona</a></li>
             <li><a href="index.html#contato">Contato</a></li>
@@ -112,7 +124,43 @@
       </div>
 
       <div class="diag-question">
-        <p class="diag-question-text">2. Sua empresa tem PGR (Programa de Gerenciamento de Riscos) atualizado?</p>
+        <p class="diag-question-text">2. Algum funcionário trabalha a mais de 2 metros de altura, com risco de queda (NR-35)?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="altura" value="sim"> Sim</label>
+          <label><input type="radio" name="altura" value="nao"> Não</label>
+          <label><input type="radio" name="altura" value="naosei"> Não sei</label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">3. Algum funcionário entra em espaços confinados, como silos, tanques, poços ou áreas com ventilação restrita (NR-33)?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="espaco_confinado" value="sim"> Sim</label>
+          <label><input type="radio" name="espaco_confinado" value="nao"> Não</label>
+          <label><input type="radio" name="espaco_confinado" value="naosei"> Não sei</label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">4. Algum funcionário atua em instalações ou serviços com eletricidade (NR-10)?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="eletricidade" value="sim"> Sim</label>
+          <label><input type="radio" name="eletricidade" value="nao"> Não</label>
+          <label><input type="radio" name="eletricidade" value="naosei"> Não sei</label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">5. Algum funcionário opera máquinas ou equipamentos com risco mecânico (NR-12)?</p>
+        <div class="diag-options">
+          <label><input type="radio" name="maquinas" value="sim"> Sim</label>
+          <label><input type="radio" name="maquinas" value="nao"> Não</label>
+          <label><input type="radio" name="maquinas" value="naosei"> Não sei</label>
+        </div>
+      </div>
+
+      <div class="diag-question">
+        <p class="diag-question-text">6. Sua empresa tem PGR (Programa de Gerenciamento de Riscos) atualizado?</p>
         <div class="diag-options">
           <label><input type="radio" name="pgr" value="sim"> Sim, está atualizado</label>
           <label><input type="radio" name="pgr" value="nao"> Não</label>
@@ -121,7 +169,7 @@
       </div>
 
       <div class="diag-question">
-        <p class="diag-question-text">3. Sua empresa tem PCMSO ativo, com os exames periódicos dos funcionários em dia?</p>
+        <p class="diag-question-text">7. Sua empresa tem PCMSO ativo, com os exames periódicos dos funcionários em dia?</p>
         <div class="diag-options">
           <label><input type="radio" name="pcmso" value="sim"> Sim</label>
           <label><input type="radio" name="pcmso" value="nao"> Não</label>
@@ -130,7 +178,7 @@
       </div>
 
       <div class="diag-question">
-        <p class="diag-question-text">4. Se algum funcionário é exposto a agentes nocivos (ruído, calor, produtos químicos etc.), o LTCAT dele está pronto?</p>
+        <p class="diag-question-text">8. Se algum funcionário é exposto a agentes nocivos (ruído, calor, produtos químicos etc.), o LTCAT dele está pronto?</p>
         <div class="diag-options">
           <label><input type="radio" name="ltcat" value="sim"> Sim, está pronto</label>
           <label><input type="radio" name="ltcat" value="nao"> Não</label>
@@ -140,7 +188,7 @@
       </div>
 
       <div class="diag-question">
-        <p class="diag-question-text">5. Sua empresa trabalha com atividades de risco acentuado (inflamáveis, explosivos, eletricidade) e já tem o laudo de periculosidade (NR-16)?</p>
+        <p class="diag-question-text">9. Sua empresa trabalha com atividades de risco acentuado (inflamáveis, explosivos, eletricidade) e já tem o laudo de periculosidade (NR-16)?</p>
         <div class="diag-options">
           <label><input type="radio" name="nr16" value="sim"> Sim, tem o laudo</label>
           <label><input type="radio" name="nr16" value="nao"> Não</label>
@@ -150,7 +198,7 @@
       </div>
 
       <div class="diag-question">
-        <p class="diag-question-text">6. Sua empresa já fez a análise ergonômica dos postos de trabalho (AEP/AET)?</p>
+        <p class="diag-question-text">10. Sua empresa já fez a análise ergonômica dos postos de trabalho (AEP/AET)?</p>
         <div class="diag-options">
           <label><input type="radio" name="aep_aet" value="sim"> Sim</label>
           <label><input type="radio" name="aep_aet" value="nao"> Não</label>
@@ -159,7 +207,7 @@
       </div>
 
       <div class="diag-question">
-        <p class="diag-question-text">7. Sua empresa teve algum acidente de trabalho registrado (CAT) nos últimos 12 meses?</p>
+        <p class="diag-question-text">11. Sua empresa teve algum acidente de trabalho registrado (CAT) nos últimos 12 meses?</p>
         <div class="diag-options">
           <label><input type="radio" name="acidente" value="sim"> Sim</label>
           <label><input type="radio" name="acidente" value="nao"> Não</label>
@@ -168,7 +216,7 @@
       </div>
 
       <div class="diag-question">
-        <p class="diag-question-text">8. Quantos funcionários a empresa tem, aproximadamente?</p>
+        <p class="diag-question-text">12. Quantos funcionários a empresa tem, aproximadamente?</p>
         <div class="diag-options">
           <label><input type="radio" name="porte" value="ate19"> Até 19</label>
           <label><input type="radio" name="porte" value="20a100"> De 20 a 100</label>
@@ -184,6 +232,13 @@
       <p id="diagnostico-resumo"></p>
       <ul id="diagnostico-pendencias"></ul>
       <p id="diagnostico-atencao" class="diagnostico-atencao" hidden>Como já houve acidente de trabalho registrado nos últimos 12 meses, esse ponto pede atenção prioritária na gestão de SST.</p>
+
+      <div class="diagnostico-resultado-trainings">
+        <h3>Treinamentos que podem ser necessários</h3>
+        <p id="diagnostico-treinamentos-resumo"></p>
+        <ul id="diagnostico-treinamentos-lista"></ul>
+      </div>
+
       <a id="diagnostico-whatsapp" class="btn btn-primary" href="#" target="_blank" rel="noopener">Falar no WhatsApp sobre isso</a>
     </div>
   </section>
