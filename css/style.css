@@ -387,17 +387,31 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   font-family: var(--font-impact);
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+/* Hover dos botoes: sobe um pouco e ganha sombra, pra ficar claro que e
+   clicavel. :active "afunda" de volta ao clicar. */
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-3px);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .btn-primary {
   background: var(--primary);
   color: #fff;
-  transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus-visible {
   background: var(--primary-dark);
-  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,61,37,0.35);
 }
 
 .btn-secondary {
@@ -406,7 +420,13 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   border: 1px solid rgba(0,87,53,0.2);
 }
 
-.btn-secondary:hover { background: var(--bg-soft); }
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(0,61,37,0.3);
+}
 
 .hero-panel {
   border: 2px solid var(--primary);
@@ -492,8 +512,10 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   flex-shrink: 0;
 }
 
-.diag-highlight .btn-primary:hover {
+.diag-highlight .btn-primary:hover,
+.diag-highlight .btn-primary:focus-visible {
   background: var(--bg-soft);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.4), 0 10px 22px rgba(0,0,0,0.35);
 }
 
 @media (max-width: 700px) {
@@ -702,7 +724,11 @@ footer.site-footer {
   color: var(--primary-dark);
 }
 
-.site-footer .btn-primary:hover { background: var(--bg-soft); }
+.site-footer .btn-primary:hover,
+.site-footer .btn-primary:focus-visible {
+  background: var(--bg-soft);
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.4), 0 10px 22px rgba(0,0,0,0.35);
+}
 
 .footer-meta {
   margin-top: 28px;
@@ -791,9 +817,20 @@ footer.site-footer {
   transition: background-color .2s ease, transform .2s ease, box-shadow .2s ease;
 }
 
-.whatsapp-float:hover {
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
   background: #1fb958;
-  transform: translateY(-1px) scale(1.02);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 0 0 5px rgba(37,211,102,0.25), 0 10px 24px rgba(0,0,0,0.32);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover,
+  .btn:focus-visible,
+  .whatsapp-float:hover,
+  .whatsapp-float:focus-visible {
+    transform: none;
+  }
 }
 
 .whatsapp-float svg { width: 28px; height: 28px; }
