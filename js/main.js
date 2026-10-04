@@ -62,31 +62,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const textarea = document.createElement('textarea');
     textarea.value = text;
     textarea.setAttribute('readonly', '');
-    textarea.style.position = 'absolute';
+    // position: fixed evita que o select() role a pagina.
+    textarea.style.position = 'fixed';
+    textarea.style.top = '0';
     textarea.style.left = '-9999px';
     document.body.appendChild(textarea);
+    textarea.focus({ preventScroll: true });
     textarea.select();
     const ok = document.execCommand('copy');
     document.body.removeChild(textarea);
     return ok ? Promise.resolve() : Promise.reject();
   };
 
-  copyLinks.forEach((link) => {
-    const originalText = link.textContent;
+  if (!copyLinks.length) {
+    return;
+  }
 
+  const toast = document.createElement('div');
+  toast.className = 'copy-toast';
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+  document.body.appendChild(toast);
+  let toastTimer;
+
+  const showToast = (message) => {
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('is-visible'), 2500);
+  };
+
+  copyLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
       const phone = link.dataset.phone;
+      // Tenta a Clipboard API e, se falhar, cai no metodo antigo.
       const copy = navigator.clipboard && window.isSecureContext
-        ? navigator.clipboard.writeText(phone)
+        ? navigator.clipboard.writeText(phone).catch(() => fallbackCopy(phone))
         : fallbackCopy(phone);
 
       copy
-        .then(() => { link.textContent = 'Número copiado!'; })
-        .catch(() => { link.textContent = 'Não foi possível copiar'; })
-        .finally(() => {
-          setTimeout(() => { link.textContent = originalText; }, 2000);
-        });
+        .then(() => showToast('Número copiado para a área de transferência'))
+        .catch(() => showToast('Não foi possível copiar. Número: ' + phone));
     });
   });
 });
