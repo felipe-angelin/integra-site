@@ -724,9 +724,13 @@ footer.site-footer {
 
 .copy-phone {
   margin-left: 8px;
+  -webkit-appearance: none;
+  appearance: none;
   padding: 0;
   border: 0;
   background: none;
+  box-shadow: none;
+  border-radius: 0;
   font: inherit;
   font-size: 0.82rem;
   color: inherit;
