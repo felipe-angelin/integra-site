@@ -722,6 +722,15 @@ footer.site-footer {
   margin-top: 8px;
 }
 
+.copy-phone {
+  margin-left: 8px;
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.copy-phone:hover { color: rgba(255,255,255,0.85); }
+
 .footer-meta .conferir { color: var(--text); }
 
 /* ===== Floating WhatsApp button =====

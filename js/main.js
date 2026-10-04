@@ -55,6 +55,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  const copyLinks = document.querySelectorAll('.copy-phone');
+
+  // Fallback para navegadores sem Clipboard API (ou fora de HTTPS).
+  const fallbackCopy = (text) => {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(textarea);
+    return ok ? Promise.resolve() : Promise.reject();
+  };
+
+  copyLinks.forEach((link) => {
+    const originalText = link.textContent;
+
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const phone = link.dataset.phone;
+      const copy = navigator.clipboard && window.isSecureContext
+        ? navigator.clipboard.writeText(phone)
+        : fallbackCopy(phone);
+
+      copy
+        .then(() => { link.textContent = 'Número copiado!'; })
+        .catch(() => { link.textContent = 'Não foi possível copiar'; })
+        .finally(() => {
+          setTimeout(() => { link.textContent = originalText; }, 2000);
+        });
+    });
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
   const indexEls = document.querySelectorAll('.discipline-index');
 
   if (!indexEls.length || !('IntersectionObserver' in window)) {
