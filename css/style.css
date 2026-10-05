@@ -565,10 +565,11 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 /* ===== Discipline list =====
    Lista numerada tipo índice de norma técnica — cada disciplina é uma
    linha com número grande, título e descrição, que inverte pra verde
-   no hover. Reaproveitada tanto pra #disciplinas quanto pra
-   #treinamentos, cada uma com sua própria numeração 01..N. */
+   no hover. Reaproveitada pra #disciplinas, #treinamentos e
+   #consultoria-de-gestao, cada uma com sua própria numeração 01..N. */
 #disciplinas .eyebrow,
-#treinamentos .eyebrow {
+#treinamentos .eyebrow,
+#consultoria-de-gestao .eyebrow {
   margin-top: 48px;
   margin-bottom: 4px;
 }
