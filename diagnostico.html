@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=7">
 </head>
 <body>
 
@@ -287,6 +287,9 @@
         </div>
       </div>
 
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+      <p class="diag-aviso">Ao clicar em Ver resultado, você concorda que seus dados e respostas sejam enviados por email à equipe da Íntegra para que ela entre em contato com você. O envio é feito por um serviço de formulários de terceiros.</p>
+
       <button type="submit" class="btn btn-primary">Ver resultado</button>
     </form>
 
@@ -302,6 +305,7 @@
         <ul id="diagnostico-treinamentos-lista"></ul>
       </div>
 
+      <p id="diagnostico-envio" class="diagnostico-envio" role="status" hidden></p>
       <a id="diagnostico-whatsapp" class="btn btn-primary" href="#" target="_blank" rel="noopener">Falar no WhatsApp sobre isso</a>
     </div>
   </section>
@@ -330,6 +334,6 @@
   </a>
 
   <script src="js/main.js?v=2"></script>
-  <script src="js/diagnostico.js"></script>
+  <script src="js/diagnostico.js?v=2"></script>
 </body>
 </html>

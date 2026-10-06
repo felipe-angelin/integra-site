@@ -4,10 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // Chave gratuita do Web3Forms (web3forms.com). Enquanto estiver com o valor
-  // abaixo, o e-mail simplesmente não é enviado — o diagnóstico e o WhatsApp
-  // continuam funcionando normalmente.
-  const WEB3FORMS_ACCESS_KEY = 'COLOQUE_SUA_CHAVE_AQUI';
+  // Chave do Web3Forms (web3forms.com), criada com a conta
+  // contato@grupointegramg.com.br, que é o destino das mensagens. A chave é
+  // pública por desenho do serviço. Se o envio falhar, o diagnóstico e o
+  // WhatsApp continuam funcionando normalmente.
+  const WEB3FORMS_ACCESS_KEY = 'bb2e29aa-e027-4bcf-b0d5-5d06d201bd76';
 
   const resultado = document.getElementById('diagnostico-resultado');
   const resumoEl = document.getElementById('diagnostico-resumo');
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const whatsappEl = document.getElementById('diagnostico-whatsapp');
   const treinamentosResumoEl = document.getElementById('diagnostico-treinamentos-resumo');
   const treinamentosListaEl = document.getElementById('diagnostico-treinamentos-lista');
+  const envioEl = document.getElementById('diagnostico-envio');
 
   const SERVICOS = {
     pgr: 'PGR',
@@ -54,10 +56,74 @@ document.addEventListener('DOMContentLoaded', () => {
     naosei: 'setor não classificado'
   };
 
+  const RESPOSTA = { sim: 'sim', nao: 'não', naosei: 'não sei', napplica: 'não se aplica' };
+
+  // Rótulos das perguntas no email, na ordem do formulário (a 01 é o setor
+  // e a 17 é o porte, tratadas à parte).
+  const PERGUNTAS = [
+    ['altura', '02 Trabalho em altura (NR 35)'],
+    ['espaco_confinado', '03 Espaços confinados (NR 33)'],
+    ['eletricidade', '04 Eletricidade (NR 10)'],
+    ['maquinas', '05 Máquinas e equipamentos (NR 12)'],
+    ['epi', '06 Uso de EPI (NR 06)'],
+    ['brigada', '07 Brigada de incêndio (NR 23)'],
+    ['construcao', '08 Construção civil (NR 18)'],
+    ['inflamaveis', '09 Inflamáveis e combustíveis (NR 20)'],
+    ['movimentacao', '10 Movimentação de cargas (NR 11)'],
+    ['pgr', '11 PGR atualizado'],
+    ['pcmso', '12 PCMSO ativo'],
+    ['ltcat', '13 LTCAT pronto'],
+    ['nr16', '14 Laudo de periculosidade (NR 16)'],
+    ['aep_aet', '15 Análise ergonômica (AEP / AET)'],
+    ['acidente', '16 Acidente de trabalho (CAT) nos últimos 12 meses']
+  ];
+
+  // Guarda o último conteúdo enviado com sucesso, pra não mandar o mesmo
+  // diagnóstico duas vezes se a pessoa clicar de novo em Ver resultado.
+  let ultimoEnvioOk = '';
+
+  function mostrarEnvio(texto) {
+    envioEl.textContent = texto;
+    envioEl.hidden = false;
+  }
+
+  async function enviarPorEmail(payload) {
+    envioEl.hidden = true;
+    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === 'COLOQUE_SUA_CHAVE_AQUI') {
+      console.warn('Web3Forms: chave de acesso ainda não configurada, email não enviado.');
+      return;
+    }
+    const assinatura = JSON.stringify(payload);
+    if (assinatura === ultimoEnvioOk) {
+      mostrarEnvio('Seus dados já foram enviados para a equipe da Íntegra.');
+      return;
+    }
+    try {
+      const resposta = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: assinatura
+      });
+      const corpo = await resposta.json().catch(() => ({}));
+      if (resposta.ok && corpo.success) {
+        ultimoEnvioOk = assinatura;
+        mostrarEnvio('Seus dados foram enviados para a equipe da Íntegra.');
+      } else {
+        throw new Error(corpo.message || String(resposta.status));
+      }
+    } catch (erro) {
+      // Falha aqui não trava o visitante: o resultado e o link do WhatsApp
+      // já foram exibidos de qualquer forma.
+      console.warn('Web3Forms:', erro);
+      mostrarEnvio('Não conseguimos enviar seus dados por email agora. Use o botão do WhatsApp abaixo para falar com a gente.');
+    }
+  }
+
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
     const data = new FormData(form);
+    if (data.get('botcheck')) { return; }
     const campos = Object.keys(SERVICOS);
     const riscos = Object.keys(TREINAMENTOS);
 
@@ -127,28 +193,23 @@ document.addEventListener('DOMContentLoaded', () => {
     resultado.hidden = false;
     resultado.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-    if (WEB3FORMS_ACCESS_KEY && WEB3FORMS_ACCESS_KEY !== 'COLOQUE_SUA_CHAVE_AQUI') {
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: 'Novo diagnóstico de SST pelo site da Íntegra',
-          from_name: nome || 'Site Íntegra',
-          nome: nome,
-          cnpj: cnpj,
-          email: email,
-          telefone: telefone,
-          setor: setorLabel,
-          porte: porteLabel,
-          acidente_recente: teveAcidente ? 'sim' : 'não',
-          resultado: resultadoResumo,
-          treinamentos: nomesTreinamentos.join(', ') || 'nenhum'
-        })
-      }).catch(() => {
-        // Falha de rede aqui não deve travar o visitante: o resultado e o
-        // link do WhatsApp já foram exibidos de qualquer forma.
-      });
-    }
+    const payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: `Novo diagnóstico da Íntegra: ${nome} (${cnpj})`,
+      from_name: nome || 'Site Íntegra',
+      nome: nome,
+      cnpj: cnpj,
+      email: email,
+      telefone: telefone,
+      '01 Setor': setorLabel
+    };
+    PERGUNTAS.forEach(([campo, rotulo]) => {
+      payload[rotulo] = RESPOSTA[data.get(campo)] || '';
+    });
+    payload['17 Porte da empresa'] = porteLabel;
+    payload['Resultado'] = resultadoResumo;
+    payload['Treinamentos que podem se aplicar'] = nomesTreinamentos.join(', ') || 'nenhum';
+
+    enviarPorEmail(payload);
   });
 });

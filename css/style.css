@@ -1155,6 +1155,27 @@ footer.site-footer {
   margin-top: 48px;
 }
 
+/* Aviso de envio dos dados, logo acima do botao Ver resultado. Ele assume
+   o espaco de 48px que antes ficava no botao. */
+.diag-aviso {
+  margin: 48px 0 1rem;
+  max-width: 60ch;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.diagnostico-form .diag-aviso + .btn {
+  margin-top: 0;
+}
+
+/* Mensagem de envio por email no resultado (enviado ou falhou). */
+.diagnostico-envio {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.diagnostico-envio[hidden] { display: none; }
+
 .diagnostico-resultado {
   margin-top: 32px;
   margin-bottom: 40px;
