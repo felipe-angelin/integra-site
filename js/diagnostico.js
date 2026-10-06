@@ -230,17 +230,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (faltando.length === 0) {
       resultadoResumo = 'documentação de SST em dia';
-      resumoEl.textContent = 'Pelo que você respondeu, a documentação de SST da sua empresa está em dia. O ponto agora é manter isso atualizado mês a mês, o que a gestão por contrato fixo da Íntegra faz.';
+      resumoEl.textContent = 'Pelo que você respondeu, a documentação de SST da sua empresa está em dia. O ponto agora é manter isso atualizado mês a mês, o que a gestão contínua da Íntegra faz.';
       pendenciasEl.hidden = true;
       pendenciasEl.innerHTML = '';
-      whatsappTexto = `Olá, fiz o diagnóstico no site da Íntegra. ${dadosContato} Minha empresa (${porteLabel}) está com a documentação de SST em dia, mas quero saber mais sobre a gestão por contrato fixo.${notaAcidente}${notaTreinamentos}`;
+      whatsappTexto = `Olá, fiz o diagnóstico no site da Íntegra. ${dadosContato} Minha empresa (${porteLabel}) está com a documentação de SST em dia, mas quero saber mais sobre a gestão contínua de SST.${notaAcidente}${notaTreinamentos}`;
     } else {
       const nomesFaltando = faltando.map((campo) => SERVICOS[campo]);
       resultadoResumo = `pendência em: ${nomesFaltando.join(', ')}`;
       resumoEl.textContent = 'Pelo que você respondeu, sua empresa tem pendência nos seguintes pontos:';
       pendenciasEl.hidden = false;
       pendenciasEl.innerHTML = nomesFaltando.map((item) => `<li>${item}</li>`).join('');
-      whatsappTexto = `Olá, fiz o diagnóstico no site da Íntegra. ${dadosContato} Minha empresa (${porteLabel}) tem pendência em: ${nomesFaltando.join(', ')}. Quero saber como funciona o contrato fixo.${notaAcidente}${notaTreinamentos}`;
+      whatsappTexto = `Olá, fiz o diagnóstico no site da Íntegra. ${dadosContato} Minha empresa (${porteLabel}) tem pendência em: ${nomesFaltando.join(', ')}. Quero saber como funciona a gestão da Íntegra.${notaAcidente}${notaTreinamentos}`;
     }
 
     if (nomesTreinamentos.length === 0) {
