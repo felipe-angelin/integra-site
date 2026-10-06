@@ -43,6 +43,73 @@ document.addEventListener('DOMContentLoaded', () => {
     movimentacao: 'NR-11 (Transporte e Movimentação de Materiais)'
   };
 
+  // CNPJ: aceita o formato antigo (só números) e o alfanumérico da Receita
+  // Federal (letras e números nas 12 primeiras posições, sempre números nos
+  // 2 dígitos verificadores). Telefone: só números, com DDD (10 ou 11).
+  // A pontuação é colocada pela máscara, a pessoa só digita os caracteres.
+  function limparCnpj(texto) {
+    let saida = '';
+    for (const c of texto.toUpperCase()) {
+      if (saida.length < 12 ? /[A-Z0-9]/.test(c) : /[0-9]/.test(c)) {
+        saida += c;
+      }
+      if (saida.length === 14) break;
+    }
+    return saida;
+  }
+
+  function formatarCnpj(v) {
+    const partes = [v.slice(0, 2), v.slice(2, 5), v.slice(5, 8), v.slice(8, 12), v.slice(12, 14)];
+    let saida = partes[0];
+    if (v.length > 2) saida += '.' + partes[1];
+    if (v.length > 5) saida += '.' + partes[2];
+    if (v.length > 8) saida += '/' + partes[3];
+    if (v.length > 12) saida += '-' + partes[4];
+    return saida;
+  }
+
+  function limparTelefone(texto) {
+    // Nenhum DDD começa com 0, então zeros iniciais (031...) caem fora, e o
+    // código do país (+55) é removido quando o número vem colado com ele.
+    let digitos = texto.replace(/\D/g, '').replace(/^0+/, '');
+    if (digitos.length > 11 && digitos.startsWith('55')) {
+      digitos = digitos.slice(2);
+    }
+    return digitos.slice(0, 11);
+  }
+
+  function formatarTelefone(v) {
+    if (v.length === 0) return '';
+    if (v.length <= 2) return '(' + v;
+    const ddd = v.slice(0, 2);
+    const resto = v.slice(2);
+    // 9 dígitos depois do DDD = celular (5 + 4); até 8 = fixo (4 + 4).
+    const corte = resto.length > 8 ? 5 : 4;
+    if (resto.length <= corte) return `(${ddd}) ${resto}`;
+    return `(${ddd}) ${resto.slice(0, corte)}-${resto.slice(corte)}`;
+  }
+
+  // Reformata o campo a cada digitação ou colagem, mantendo o cursor depois
+  // do mesmo caractere válido em que ele estava.
+  function aplicarMascara(input, limpar, formatar) {
+    input.addEventListener('input', () => {
+      const cursor = input.selectionStart ?? input.value.length;
+      const validosAntes = limpar(input.value.slice(0, cursor)).length;
+      const formatado = formatar(limpar(input.value));
+      input.value = formatado;
+      let pos = 0;
+      let contados = 0;
+      while (pos < formatado.length && contados < validosAntes) {
+        if (/[A-Z0-9]/.test(formatado[pos])) contados++;
+        pos++;
+      }
+      input.setSelectionRange(pos, pos);
+    });
+  }
+
+  aplicarMascara(form.elements.cnpj, limparCnpj, formatarCnpj);
+  aplicarMascara(form.elements.telefone, limparTelefone, formatarTelefone);
+
   const PORTE = {
     ate19: 'até 19 funcionários',
     '20a100': 'de 20 a 100 funcionários',

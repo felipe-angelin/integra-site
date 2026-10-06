@@ -114,7 +114,7 @@
         <div class="diag-contato-grid">
           <label class="diag-field">
             CNPJ
-            <input type="text" name="cnpj" placeholder="00.000.000/0000-00" required>
+            <input type="text" name="cnpj" placeholder="00.000.000/0000-00" autocapitalize="characters" autocomplete="off" spellcheck="false" pattern="[A-Z0-9]{2}\.[A-Z0-9]{3}\.[A-Z0-9]{3}/[A-Z0-9]{4}-[0-9]{2}" title="Informe o CNPJ completo, com 14 caracteres." required>
           </label>
           <label class="diag-field">
             Nome do contato
@@ -126,7 +126,7 @@
           </label>
           <label class="diag-field">
             Telefone
-            <input type="tel" name="telefone" placeholder="(31) 90000-0000" required>
+            <input type="tel" name="telefone" placeholder="(31) 90000-0000" inputmode="numeric" autocomplete="tel-national" pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" title="Informe o telefone com DDD, só números." required>
           </label>
         </div>
       </div>
@@ -334,6 +334,6 @@
   </a>
 
   <script src="js/main.js?v=2"></script>
-  <script src="js/diagnostico.js?v=2"></script>
+  <script src="js/diagnostico.js?v=3"></script>
 </body>
 </html>
