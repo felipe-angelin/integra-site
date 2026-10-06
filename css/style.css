@@ -768,6 +768,14 @@ footer.site-footer {
 
 .copy-phone:hover { color: #fff; }
 
+.contact-email {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.contact-email:hover { color: #fff; }
+
 .copy-toast {
   position: fixed;
   left: 50%;
