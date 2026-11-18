@@ -35,12 +35,12 @@
 
 * { box-sizing: border-box; }
 
-html, body {
-  overflow-x: hidden;
-}
+html { overflow-x: hidden; }
+body { overflow-x: clip; }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 94px;
 }
 
 body {
@@ -120,6 +120,10 @@ a {
 /* ===== Header ===== */
 header.site-header {
   background: var(--primary-dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 }
 
 .site-header .container {
@@ -925,6 +929,10 @@ footer.site-footer {
 }
 
 @media (max-width: 840px) {
+  html {
+    scroll-padding-top: 154px;
+  }
+
   .hero-copy .hero-slogan {
     font-size: 1.1rem;
   }
@@ -965,6 +973,9 @@ footer.site-footer {
     flex-direction: column;
     align-items: stretch;
     z-index: 50;
+    max-height: calc(100vh - 136px);
+    max-height: calc(100dvh - 136px);
+    overflow-y: auto;
   }
 
   nav.main-nav.is-open ul {
