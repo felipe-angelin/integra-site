@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="css/style.css?v=10">
 </head>
 <body>
 
@@ -42,13 +42,20 @@
 
             <li class="nav-item-with-dropdown">
               <a href="#disciplinas">Serviços <span class="caret">▾</span></a>
-              <div class="dropdown">
+              <div class="dropdown dropdown-even">
                 <div class="dropdown-column">
                   <div class="dropdown-item"><a href="#pgr">PGR</a></div>
                   <div class="dropdown-item"><a href="#pcmso">PCMSO</a></div>
+                  <div class="dropdown-item"><a href="#pca">PCA</a></div>
+                  <div class="dropdown-item"><a href="#ppr">PPR</a></div>
+                  <div class="dropdown-item"><a href="#pgrss">PGRSS</a></div>
+                </div>
+                <div class="dropdown-column">
+                  <div class="dropdown-item"><a href="#laudo-insalubridade">Laudo de Insalubridade</a></div>
+                  <div class="dropdown-item"><a href="#laudo-nr16">Laudo de Periculosidade</a></div>
                   <div class="dropdown-item"><a href="#ltcat">LTCAT</a></div>
-                  <div class="dropdown-item"><a href="#laudo-nr16">Laudo NR-16</a></div>
                   <div class="dropdown-item"><a href="#aep-aet">AEP / AET</a></div>
+                  <div class="dropdown-item"><a href="#adendos">Adendos</a></div>
                 </div>
               </div>
             </li>
@@ -101,9 +108,8 @@
         <h1 class="hero-vision">Gestão de SST Terceirizada</h1>
         <p class="hero-slogan">Gestão íntegra, do começo ao fim.</p>
         <p>
-          A Íntegra assume a gestão de segurança do trabalho da sua empresa:
-          programas legais, identificação de pendências e acompanhamento
-          contínuo junto aos órgãos.
+          Programas, laudos e a gestão completa da segurança do trabalho da
+          sua empresa, do diagnóstico à rotina.
         </p>
         <div class="hero-actions">
           <a href="https://wa.me/5531972710771?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20caso%20da%20%C3%8Dntegra." class="btn btn-primary" target="_blank" rel="noopener">Falar por WhatsApp</a>
@@ -115,7 +121,7 @@
         <div class="panel-card">
           <span class="panel-label">Formato</span>
           <strong>Gestão contínua</strong>
-          <p>Um diagnóstico inicial sem custo, depois a Íntegra assume a rotina completa de SST da sua empresa.</p>
+          <p>Visita técnica e diagnóstico sem custo, depois a Íntegra assume a rotina completa de SST da sua empresa.</p>
         </div>
         <div class="panel-card subtle">
           <span class="panel-label">Cobertura</span>
@@ -145,16 +151,122 @@
     </div>
   </section>
 
+  <section class="context-block" id="quem-somos">
+    <div class="container">
+      <h2>Quem somos</h2>
+      <p>
+        A Íntegra cuida da gestão de segurança do trabalho de empresas que não
+        querem e não precisam montar um SESMT (Serviço Especializado em
+        Segurança e Medicina do Trabalho) próprio. Elaboramos os programas e
+        laudos que a empresa precisa e, na gestão completa, assumimos a rotina
+        inteira.
+      </p>
+      <p>Atendemos empresas de qualquer setor, em todo o Brasil.</p>
+    </div>
+  </section>
+
+  <section class="context-block" id="por-que-terceirizar">
+    <div class="container">
+      <h2>Por que terceirizar a gestão de SST</h2>
+      <p>
+        Toda empresa com empregado CLT (Consolidação das Leis do Trabalho) tem
+        obrigações de SST (Saúde e Segurança do Trabalho). O documento costuma
+        existir. O que falta é alguém que faça a rotina andar todo mês. Na
+        prática, aparece assim:
+      </p>
+      <ol class="context-list">
+        <li>O PGR (Programa de Gerenciamento de Riscos) foi feito uma vez e ficou na gaveta. O plano de ação nunca saiu do papel.</li>
+        <li>Treinamento vencido, ficha de EPI (Equipamento de Proteção Individual) sem assinatura, funcionário novo começando sem integração.</li>
+        <li>Eventos de SST no eSocial atrasados ou enviados com erro.</li>
+        <li>Prestador de serviço entrando na empresa sem ninguém conferir a documentação dele.</li>
+        <li>Acidente acontece e a empresa descobre na hora que não tem registro de nada.</li>
+      </ol>
+      <p>
+        Contratar um técnico de segurança próprio resolve parte disso, mas
+        custa salário, encargos, férias e substituição. E um técnico sozinho,
+        sem coordenação, tende a virar emissor de papel. A Íntegra entrega a
+        rotina e a coordenação juntas.
+      </p>
+    </div>
+  </section>
+
+  <section id="gestao-completa">
+    <div class="container">
+      <span class="eyebrow eyebrow-onLight">Gestão completa</span>
+      <p class="section-intro">Na gestão completa, o serviço é montado em frentes. Cada cliente recebe as que fazem sentido para a operação dele.</p>
+      <ol class="discipline-list">
+
+        <li class="discipline-row" id="programas-e-documentos">
+          <span class="discipline-index">01</span>
+          <div class="discipline-body">
+            <h2>Programas e documentos</h2>
+            <p>PGR (Programa de Gerenciamento de Riscos) atualizado, inventário de riscos e plano de ação com prazo e responsável. Documentos que exigem assinatura técnica ficam a cargo de engenheiro de segurança do trabalho. <span class="accent-text">Documentação em dia e um plano que anda.</span></p>
+          </div>
+        </li>
+
+        <li class="discipline-row" id="rotina-em-campo">
+          <span class="discipline-index">02</span>
+          <div class="discipline-body">
+            <h2>Rotina em campo</h2>
+            <p>Inspeções periódicas, permissões de trabalho, controle de EPI (Equipamento de Proteção Individual) e investigação de quase acidentes. <span class="accent-text">Problema identificado antes de virar acidente.</span></p>
+          </div>
+        </li>
+
+        <li class="discipline-row" id="treinamentos-e-integracao">
+          <span class="discipline-index">03</span>
+          <div class="discipline-body">
+            <h2>Treinamentos e integração</h2>
+            <p>Calendário de treinamentos das NRs (Normas Regulamentadoras) aplicáveis, integração de novos funcionários e de temporários. <span class="accent-text">Certificados em dia e ninguém começando sem integração.</span></p>
+          </div>
+        </li>
+
+        <li class="discipline-row" id="esocial-e-saude-ocupacional">
+          <span class="discipline-index">04</span>
+          <div class="discipline-body">
+            <h2>eSocial e saúde ocupacional</h2>
+            <p>Envio dos eventos de SST (Saúde e Segurança do Trabalho) no eSocial, calendário de exames e acompanhamento do PCMSO (Programa de Controle Médico de Saúde Ocupacional). <span class="accent-text">Prazos cumpridos e histórico organizado.</span></p>
+          </div>
+        </li>
+
+        <li class="discipline-row" id="cipa-e-brigada">
+          <span class="discipline-index">05</span>
+          <div class="discipline-body">
+            <h2>CIPA e brigada</h2>
+            <p>Dimensionamento e processo eleitoral da CIPA (Comissão Interna de Prevenção de Acidentes e de Assédio), treinamento da comissão, brigada de incêndio e simulados. <span class="accent-text">Comissão funcionando e equipe preparada para emergência.</span></p>
+          </div>
+        </li>
+
+        <li class="discipline-row" id="gestao-de-terceiros">
+          <span class="discipline-index">06</span>
+          <div class="discipline-body">
+            <h2>Gestão de terceiros</h2>
+            <p>Conferência da documentação de prestadores antes da entrada e acompanhamento em campo. <span class="accent-text">Quem entra na empresa entra regular.</span></p>
+          </div>
+        </li>
+
+        <li class="discipline-row" id="indicadores-e-fiscalizacao">
+          <span class="discipline-index">07</span>
+          <div class="discipline-body">
+            <h2>Indicadores e fiscalização</h2>
+            <p>Relatório mensal com indicadores e pendências e pasta pronta para auditor fiscal do trabalho. <span class="accent-text">Visão clara do que está em dia e do que falta.</span></p>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
   <section id="disciplinas">
     <div class="container">
-      <span class="eyebrow eyebrow-onLight">Serviços</span>
+      <span class="eyebrow eyebrow-onLight">Programas, laudos e adendos</span>
+      <p class="section-intro">Para quem precisa do documento sem contratar a gestão completa. Para quem tem a gestão, eles já entram na rotina.</p>
       <ol class="discipline-list">
 
         <li class="discipline-row" id="pgr">
           <span class="discipline-index">01</span>
           <div class="discipline-body">
             <h2>PGR</h2>
-            <p>Identifica, avalia e controla riscos, criando <span class="accent-text">ações efetivas</span> que evitam acidentes.</p>
+            <p><span class="accent-text">Programa de Gerenciamento de Riscos.</span> Inventário de riscos e plano de ação, exigido pela NR-1.</p>
           </div>
         </li>
 
@@ -162,35 +274,76 @@
           <span class="discipline-index">02</span>
           <div class="discipline-body">
             <h2>PCMSO</h2>
-            <p>Acompanhamento das pendências de exames <span class="accent-text">admissional, periódico e demissional</span> dos funcionários.</p>
+            <p><span class="accent-text">Programa de Controle Médico de Saúde Ocupacional.</span> Exames e acompanhamento da saúde, exigido pela NR-7.</p>
           </div>
         </li>
 
-        <li class="discipline-row" id="ltcat">
+        <li class="discipline-row" id="pca">
           <span class="discipline-index">03</span>
           <div class="discipline-body">
-            <h2>LTCAT</h2>
-            <p>Identifica pendências ligadas a agentes nocivos e ao direito à <span class="accent-text">aposentadoria especial</span>.</p>
+            <h2>PCA</h2>
+            <p><span class="accent-text">Programa de Conservação Auditiva.</span> Controle da exposição a ruído e acompanhamento auditivo.</p>
+          </div>
+        </li>
+
+        <li class="discipline-row" id="ppr">
+          <span class="discipline-index">04</span>
+          <div class="discipline-body">
+            <h2>PPR</h2>
+            <p><span class="accent-text">Programa de Proteção Respiratória.</span> Escolha, uso e controle dos respiradores.</p>
+          </div>
+        </li>
+
+        <li class="discipline-row" id="pgrss">
+          <span class="discipline-index">05</span>
+          <div class="discipline-body">
+            <h2>PGRSS</h2>
+            <p><span class="accent-text">Plano de Gerenciamento de Resíduos de Serviços de Saúde.</span> Manejo dos resíduos de clínicas, consultórios e laboratórios.</p>
+          </div>
+        </li>
+
+        <li class="discipline-row" id="laudo-insalubridade">
+          <span class="discipline-index">06</span>
+          <div class="discipline-body">
+            <h2>Laudo de Insalubridade</h2>
+            <p>Avaliação dos agentes da NR-15 e do <span class="accent-text">adicional devido</span>.</p>
           </div>
         </li>
 
         <li class="discipline-row" id="laudo-nr16">
-          <span class="discipline-index">04</span>
+          <span class="discipline-index">07</span>
           <div class="discipline-body">
-            <h2>Laudo NR-16</h2>
-            <p>Identifica pendências de laudo em atividades perigosas <span class="accent-text">(inflamáveis, explosivos, eletricidade)</span>.</p>
+            <h2>Laudo de Periculosidade NR-16</h2>
+            <p>Avaliação das atividades da NR-16 e do <span class="accent-text">adicional devido</span>.</p>
+          </div>
+        </li>
+
+        <li class="discipline-row" id="ltcat">
+          <span class="discipline-index">08</span>
+          <div class="discipline-body">
+            <h2>LTCAT com ART</h2>
+            <p><span class="accent-text">Laudo Técnico das Condições Ambientais do Trabalho</span>, com Anotação de Responsabilidade Técnica.</p>
           </div>
         </li>
 
         <li class="discipline-row" id="aep-aet">
-          <span class="discipline-index">05</span>
+          <span class="discipline-index">09</span>
           <div class="discipline-body">
-            <h2>AEP / AET</h2>
-            <p>Análises preliminar e ergonômica para mitigar riscos conforme <span class="accent-text">NR-17</span>.</p>
+            <h2>Análise Ergonômica AEP / AET</h2>
+            <p>Análise e laudo ergonômico das condições de trabalho, conforme a NR-17, <span class="accent-text">por função</span>.</p>
+          </div>
+        </li>
+
+        <li class="discipline-row" id="adendos">
+          <span class="discipline-index">10</span>
+          <div class="discipline-body">
+            <h2>Adendos</h2>
+            <p>Atualização do PGR, do PCMSO ou do LTCAT quando entra função, setor ou risco novo, <span class="accent-text">sem refazer tudo</span>.</p>
           </div>
         </li>
 
       </ol>
+      <p class="section-outro">Não encontrou o que precisa? Atendemos outros programas, laudos e treinamentos de SST (Saúde e Segurança do Trabalho). <a href="https://wa.me/5531972710771?text=Ol%C3%A1%2C%20quero%20falar%20sobre%20um%20caso%20da%20%C3%8Dntegra." target="_blank" rel="noopener">Fale com a gente pelo WhatsApp</a>.</p>
     </div>
   </section>
 
@@ -275,7 +428,7 @@
           <span class="discipline-index">10</span>
           <div class="discipline-body">
             <h2>NR-05 · CIPA</h2>
-            <p>Apoio na formação da <span class="accent-text">Comissão Interna de Prevenção de Acidentes</span>, exigida a partir de 20 empregados no estabelecimento, conforme o grau de risco. Abaixo disso, a norma prevê a nomeação de um representante da empresa.</p>
+            <p>Apoio na formação da <span class="accent-text">Comissão Interna de Prevenção de Acidentes e de Assédio</span>, exigida a partir de 20 empregados no estabelecimento, conforme o grau de risco. Abaixo disso, a norma prevê a nomeação de um representante da empresa.</p>
           </div>
         </li>
 
@@ -324,19 +477,112 @@
     </div>
   </section>
 
+  <section id="para-quem">
+    <div class="container">
+      <span class="eyebrow eyebrow-onLight">Para quem</span>
+      <p class="section-intro">Toda empresa com empregado CLT (Consolidação das Leis do Trabalho) precisa de gestão de SST (Saúde e Segurança do Trabalho), de qualquer setor e porte. O que muda de uma para outra é o risco, e a rotina é montada em cima dele. Alguns exemplos:</p>
+      <table class="sector-table">
+        <thead>
+          <tr>
+            <th scope="col">Setor</th>
+            <th scope="col">Onde costuma apertar</th>
+            <th scope="col">O que a Íntegra prioriza</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Indústria</th>
+            <td data-label="Onde costuma apertar">Máquinas sem adequação à NR-12, empilhadeiras e armazenagem (NR-11), CIPA (Comissão Interna de Prevenção de Acidentes e de Assédio) parada.</td>
+            <td data-label="O que a Íntegra prioriza">Diagnóstico das máquinas, plano de adequação por prioridade e preparo para quando o SESMT (Serviço Especializado em Segurança e Medicina do Trabalho) vira obrigatório.</td>
+          </tr>
+          <tr>
+            <th scope="row">Construção e obras</th>
+            <td data-label="Onde costuma apertar">Canteiro que começa rápido, muitos subempreiteiros, decisores longe da obra.</td>
+            <td data-label="O que a Íntegra prioriza">Segurança desde o primeiro dia de canteiro, gestão de terceiros e relatório direto para quem decide.</td>
+          </tr>
+          <tr>
+            <th scope="row">Hotéis, turismo e eventos</th>
+            <td data-label="Onde costuma apertar">Alta temporada com muitos temporários, manutenção com eletricidade (NR-10) e telhado (NR-35).</td>
+            <td data-label="O que a Íntegra prioriza">Integração dos temporários, brigada, simulados e controle de prestadores.</td>
+          </tr>
+          <tr>
+            <th scope="row">Comércio, serviços e escritórios</th>
+            <td data-label="Onde costuma apertar">Ergonomia (NR-17) esquecida, brigada de incêndio desatualizada, eSocial atrasado.</td>
+            <td data-label="O que a Íntegra prioriza">PGR (Programa de Gerenciamento de Riscos) enxuto, ergonomia, brigada e eventos do eSocial em dia.</td>
+          </tr>
+          <tr>
+            <th scope="row">Logística e transporte</th>
+            <td data-label="Onde costuma apertar">Movimentação de carga, jornada longa, frota e prestadores circulando.</td>
+            <td data-label="O que a Íntegra prioriza">Habilitação de operadores, regras de circulação e controle de terceiros.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="section-outro">Atendemos empresas de qualquer setor, em todo o Brasil.</p>
+    </div>
+  </section>
+
   <section class="context-block" id="como-funciona">
     <div class="container">
       <h2>Como funciona</h2>
+      <p>O primeiro passo não custa nada e não obriga a contratar.</p>
+      <ol class="discipline-list steps-list">
+
+        <li class="discipline-row">
+          <span class="discipline-index">01</span>
+          <div class="discipline-body">
+            <h3>Visita técnica sem custo</h3>
+            <p>Conhecemos a operação, os riscos e a documentação que já existe. Pode ser presencial ou online.</p>
+          </div>
+        </li>
+
+        <li class="discipline-row">
+          <span class="discipline-index">02</span>
+          <div class="discipline-body">
+            <h3>Diagnóstico</h3>
+            <p>Entregamos o mapa do que está em dia, do que está pendente e do que um auditor fiscal olharia primeiro.</p>
+          </div>
+        </li>
+
+        <li class="discipline-row">
+          <span class="discipline-index">03</span>
+          <div class="discipline-body">
+            <h3>Proposta</h3>
+            <p>Escopo fechado por frente, com preço e prazos. Sem item genérico.</p>
+          </div>
+        </li>
+
+        <li class="discipline-row">
+          <span class="discipline-index">04</span>
+          <div class="discipline-body">
+            <h3>Implantação</h3>
+            <p>Atualizamos os programas, organizamos a pasta e colocamos o calendário de treinamentos, exames e eSocial para rodar.</p>
+          </div>
+        </li>
+
+        <li class="discipline-row">
+          <span class="discipline-index">05</span>
+          <div class="discipline-body">
+            <h3>Rotina</h3>
+            <p>O técnico designado atua na operação e a coordenação acompanha. Todo mês o cliente recebe um relatório com indicadores e pendências.</p>
+          </div>
+        </li>
+
+      </ol>
       <p>
-        A Íntegra assume a gestão de segurança do trabalho da sua empresa:
-        programas legais, identificação de pendências e o contato com os
-        órgãos fiscalizadores. Sua empresa não precisa manter uma equipe
-        própria de SST pra isso.
+        Quer ver onde estão as pendências antes de conversar com a gente?
+        <a href="diagnostico.html">Faça o diagnóstico rápido</a>.
       </p>
-      <p>
-        Quer ver exatamente onde estão as pendências antes de conversar com a
-        gente? <a href="diagnostico.html">Faça o diagnóstico rápido</a>.
-      </p>
+      <div class="context-note">
+        <h3>Investimento</h3>
+        <p>
+          Na gestão completa, o preço depende do porte, do grau de risco e das
+          frentes escolhidas. Programas e laudos são cobrados por documento e
+          por estabelecimento, ou seja, por CNPJ (Cadastro Nacional da Pessoa
+          Jurídica). A Análise Ergonômica é cobrada por função avaliada.
+          Deslocamento fora de Belo Horizonte e taxas de terceiros ficam à
+          parte.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -354,6 +600,7 @@
         <p class="contact-line">E-mail: <a href="mailto:contato@grupointegramg.com.br" class="contact-email">contato@grupointegramg.com.br</a></p>
         <p class="footer-slogan">Gestão íntegra, do começo ao fim.</p>
         <p class="contact-line">Íntegra · Atendimento em todo o Brasil</p>
+        <p class="contact-line">Íntegra Gestão em SSMA Ltda · CNPJ 69.319.257/0001-07</p>
       </div>
     </div>
   </footer>

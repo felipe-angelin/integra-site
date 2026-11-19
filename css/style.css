@@ -210,6 +210,12 @@ nav.main-nav ul {
   transform: translateY(0);
 }
 
+/* Dropdown de Serviços: duas colunas de mesma largura. */
+.nav-item-with-dropdown > .dropdown.dropdown-even {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(460px, 58vw);
+}
+
 .dropdown-column {
   padding: 18px 18px 14px;
   background: rgba(246,248,246,0.7);
@@ -582,9 +588,11 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
    linha com número grande, título e descrição, que inverte pra verde
    no hover. Reaproveitada pra #disciplinas, #treinamentos e
    #consultoria-de-gestao, cada uma com sua própria numeração 01..N. */
+#gestao-completa .eyebrow,
 #disciplinas .eyebrow,
 #treinamentos .eyebrow,
-#consultoria-de-gestao .eyebrow {
+#consultoria-de-gestao .eyebrow,
+#para-quem .eyebrow {
   margin-top: 48px;
   margin-bottom: 4px;
 }
@@ -621,6 +629,7 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
 
 .discipline-row:hover .discipline-index,
 .discipline-row:hover h2,
+.discipline-row:hover h3,
 .discipline-row:hover p {
   color: #fff;
 }
@@ -645,7 +654,8 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   min-width: 0;
 }
 
-.discipline-row h2 {
+.discipline-row h2,
+.discipline-row h3 {
   font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 0.01em;
@@ -707,6 +717,147 @@ nav.main-nav .caret { font-size: 0.65em; opacity: 0.8; }
   letter-spacing: 0.06em;
 }
 .context-block p { color: var(--text-muted); }
+
+/* Dois blocos de contexto seguidos dividem uma linha só. */
+.context-block + .context-block { border-top: none; }
+
+.context-list {
+  margin: 0 0 1em;
+  padding-left: 1.4em;
+  color: var(--text-muted);
+}
+
+.context-list li { margin-bottom: 8px; padding-left: 4px; }
+.context-list li::marker { color: var(--primary); font-family: var(--font-impact); font-weight: 700; }
+
+/* Passos do "Como funciona", no mesmo padrão das listas numeradas. */
+.context-block .steps-list { padding-bottom: 24px; }
+
+.context-note {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.context-note h3 {
+  color: var(--primary);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.context-note p { margin: 0; }
+
+/* Texto curto de abertura e de fechamento das seções com lista. */
+.section-intro {
+  margin: 14px 0 24px;
+  max-width: 64ch;
+  color: var(--text-muted);
+}
+
+.section-outro {
+  margin: 0 0 48px;
+  max-width: 64ch;
+  color: var(--text-muted);
+}
+
+.section-outro a { font-weight: 600; }
+
+/* ===== Para quem: tabela de setores =====
+   Três colunas em tela larga; no celular cada setor vira um bloco
+   empilhado, com o rótulo de cada linha vindo do data-label. */
+.sector-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 24px;
+  font-size: 0.95rem;
+}
+
+.sector-table th,
+.sector-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 16px 18px 16px 0;
+  border-top: 1px solid var(--border);
+}
+
+.sector-table thead th {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  border-top: 2px solid var(--text);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.sector-table tbody th {
+  width: 22%;
+  font-family: var(--font-impact);
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.sector-table td { color: var(--text-muted); }
+
+.sector-table tbody tr:last-child th,
+.sector-table tbody tr:last-child td {
+  border-bottom: 2px solid var(--text);
+}
+
+@media (max-width: 700px) {
+  .sector-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .sector-table,
+  .sector-table tbody,
+  .sector-table tr,
+  .sector-table th,
+  .sector-table td {
+    display: block;
+    width: auto;
+  }
+
+  .sector-table tr {
+    border-top: 2px solid var(--text);
+    padding: 16px 0 8px;
+  }
+
+  .sector-table tbody tr:last-child {
+    border-bottom: 2px solid var(--text);
+  }
+
+  .sector-table th,
+  .sector-table td,
+  .sector-table tbody tr:last-child th,
+  .sector-table tbody tr:last-child td {
+    border: none;
+    padding: 0 0 10px;
+  }
+
+  .sector-table tbody th { width: auto; font-size: 1.05rem; }
+
+  .sector-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--primary);
+    margin-bottom: 2px;
+  }
+}
 
 /* ===== Footer / CTA ===== */
 footer.site-footer {
@@ -1000,6 +1151,11 @@ footer.site-footer {
     max-width: none;
     padding: 0 0 8px;
     display: none;
+    flex-direction: column;
+  }
+
+  nav.main-nav .nav-item-with-dropdown > .dropdown.dropdown-even {
+    width: 100%;
   }
 
   nav.main-nav li:hover > .dropdown,
