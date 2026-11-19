@@ -210,12 +210,6 @@ nav.main-nav ul {
   transform: translateY(0);
 }
 
-/* Dropdown de Serviços: duas colunas de mesma largura. */
-.nav-item-with-dropdown > .dropdown.dropdown-even {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  width: min(460px, 58vw);
-}
-
 .dropdown-column {
   padding: 18px 18px 14px;
   background: rgba(246,248,246,0.7);
@@ -1151,11 +1145,6 @@ footer.site-footer {
     max-width: none;
     padding: 0 0 8px;
     display: none;
-    flex-direction: column;
-  }
-
-  nav.main-nav .nav-item-with-dropdown > .dropdown.dropdown-even {
-    width: 100%;
   }
 
   nav.main-nav li:hover > .dropdown,
